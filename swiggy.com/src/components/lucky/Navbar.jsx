@@ -8,10 +8,34 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logoutsuccess } from "../../store/store/auth/action";
 import Drawer from "@mui/material/Drawer";
-
+import Loginimage from "./Image-login_btpq7r.webp";
+import TextField from "@mui/material/TextField";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
 const Navbar = () => {
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [state, setState] = React.useState(false);
+    const RedditTextField = styled((props) => (
+      <TextField InputProps={{ disableUnderline: true }} {...props} />
+    ))(({ theme }) => ({
+      "& .MuiFilledInput-root": {
+        border: "1px solid #e2e2e1",
+        overflow: "hidden",
+        borderRadius: 0,
+        backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
+        transition: theme.transitions.create([
+          "border-color",
+          "background-color",
+          "box-shadow",
+        ]),
+        "&:hover": {
+          backgroundColor: "transparent",
+        },
+        "&.Mui-focused": {
+          backgroundColor: "transparent",
+        },
+      },
+    }));
 
     const toggleDrawer = (open) => {
       setState(open);
@@ -19,12 +43,36 @@ const Navbar = () => {
 
     const list = () => (
       <Box
-        sx={{ width: 450 }}
+        className="drawer"
+        sx={{ width: 350 }}
         role="presentation"
-        onClick={() => toggleDrawer(false)}
+        // onClick={() => toggleDrawer(false)}
         onKeyDown={() => toggleDrawer(false)}
       >
-        data
+        <div className="flex">
+          <div>
+            <p>Login</p>
+            <p className="p1">
+              or <span>create an account</span>{" "}
+            </p>
+          </div>
+          <div>
+            <img className="login_img" src={Loginimage} alt="" />
+          </div>
+            </div>
+            <div className="jss1">
+                <RedditTextField
+          label="Phone number"
+          id="reddit-input"
+          variant="filled"
+            style={{ marginTop: 11 }}
+        />
+        <Button id="button_1" variant="outlined">Login</Button>
+            </div>
+        
+        <p>
+          By clicking on Login, I accept the Terms & Conditions & Privacy Policy
+        </p>
       </Box>
     );
   const token = useSelector((state) => state.auth.token);
