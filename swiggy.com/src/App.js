@@ -1,11 +1,24 @@
-
-import './App.css';
-import Navbar from './components/lucky/Navbar';
+import "./App.css";
+import Navbar from "./components/lucky/Navbar";
+import { Route, Routes } from "react-router-dom";
+import Login from "./components/lucky/Login";
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar />
+      <Routes>
+        {/* <Route
+          path="/"
+          element={
+            <Private>
+              {" "}
+              <Home />
+            </Private>
+          }
+        ></Route> */}
+        <Route path="/login" element={<Login />}></Route>
+      </Routes>
     </div>
   );
 }

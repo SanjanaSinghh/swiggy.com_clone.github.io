@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { logoutsuccess } from "../store/auth/action";
+import { logoutsuccess } from "../../store/store/auth/action";
 
 const Navbar = () => {
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
