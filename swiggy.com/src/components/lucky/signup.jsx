@@ -27,6 +27,7 @@ const Signup = () => {
   const [expandform, setexpandform] = React.useState(false);
   const [captchasize, setcaptchasize] = React.useState("visible");
   const [otp, setotp] = React.useState();
+  const [loggedin, setloggedin] = React.useState(false);
   const toggleDrawer = (open) => {
     setState(open);
   };
@@ -81,7 +82,8 @@ const Signup = () => {
           // User signed in successfully.
           const user = result.user;
           console.log(user);
-          settoken(user.accessToken);
+            settoken(user.accessToken);
+            setloggedin(true);
           // ...
         })
         .catch((error) => {
@@ -127,7 +129,14 @@ const Signup = () => {
               onChange={(e) => setotp(e.target.value)}
               variant="outlined"
             />
-            <Button onClick={verifyotp}>Verify</Button>
+            <Button
+              id="button_1"
+              className="verify"
+              onClick={verifyotp}
+              variant="outlined"
+            >
+              Verify
+            </Button>
           </>
         ) : (
           <>
@@ -178,7 +187,10 @@ const Signup = () => {
   const dispatch = useDispatch();
   const handlelogout = () => {
     dispatch(logoutsuccess());
-  };
+    };
+    
+    
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
