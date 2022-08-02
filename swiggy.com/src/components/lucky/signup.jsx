@@ -32,7 +32,7 @@ const Signup = () => {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-const data = useSelector((state) => state.auth);
+const Data = useSelector((state) => state.auth);
   const toggleDrawer = (open) => {
     setState(open);
   };
@@ -41,7 +41,7 @@ const data = useSelector((state) => state.auth);
     
     return () => {};
   }, []);
-// console.log(data.email);
+
   const handlelogin = () => {
     //  console.log(2);
     dispatch(loginloading());
@@ -56,6 +56,7 @@ const data = useSelector((state) => state.auth);
         token: token,
       },
     }).then((res) => {
+        console.log(Data.email);
         console.log(res.data);
       dispatch(sucessLogin(res.data.email));
       console.log(res);
@@ -105,9 +106,9 @@ const data = useSelector((state) => state.auth);
         .confirm(otp)
         .then((result) => {
           // User signed in successfully.
-          const user = result.user;
-          console.log(user);
-            settoken(user.accessToken);
+          const User = result.user;
+          console.log(User.uid);
+            settoken(User.uid);
             console.log(token);
           setloggedin(true);
           handlelogin();
