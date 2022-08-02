@@ -87,8 +87,6 @@ const Navbar = () => {
   }
 
  
-     
-
   const toggleDrawer = (open) => {
     setState(open);
   };

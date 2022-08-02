@@ -8,8 +8,9 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <Help/>
       <Routes>
-        <Route path="/help" element={<Help />}></Route>
+        {/* <Route path="/help" element={<Help />}></Route> */}
       </Routes>
     </div>
   );

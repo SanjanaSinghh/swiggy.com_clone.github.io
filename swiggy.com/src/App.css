@@ -2,9 +2,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.App {
+/* .App {
   text-align: center;
-}
+} */
 .login_img {
   margin-top: 40px;
   width: 100px;
@@ -79,4 +79,76 @@ body {
 }
 .login {
   margin-bottom: 0%;
+}
+.main {
+      padding-top: 33px;
+    max-width: 1200px;
+    min-width: 1200px;
+    margin: 0 auto;
+        position: relative;
+    background: #37718e;
+}
+.js1 {
+      color: #fff;
+    margin-bottom: 37px;
+    margin-top: 37px;
+    position: relative;
+}
+.jsh1 {
+  margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.jsp1 {
+      margin-top: 2px;
+    font-size: 16px;
+}
+.body_help {
+      padding: 0 20px;
+    background: #37718e;
+    min-height: 100vh;
+}
+.js3 {
+      max-width: 1200px;
+    min-width: 1200px;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    contain: layout;
+}
+.js31 {
+  display: flex;
+}
+.js31left {
+      min-width: 260px;
+    background: #edf1f7;
+}
+.js31right {
+      flex: 1;
+    background: #fff;
+    padding: 37px 0 0 50px;
+    position: relative;
+    min-height: 80vh;
+}
+.jss31ul {
+      padding: 20px 0;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 80px;
+}
+.js31li {
+      padding: 25px 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+}
+.js31span {
+      margin-left: 40px;
+    font-size: 16px;
+    color: #535665;
+    font-weight: 500;
 }
