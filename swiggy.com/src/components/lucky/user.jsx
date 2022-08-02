@@ -1,6 +1,6 @@
 import React from "react";
 
-const Help = () => {
+const User = () => {
   return (
     <div className="body_help">
       <div className="main">
@@ -46,4 +46,4 @@ const Help = () => {
   );
 };
 
-export default Help;
+export default User;
