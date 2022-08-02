@@ -23,7 +23,7 @@ import { useSelector } from "react-redux";
 const Signup = () => {
   const countrycode = "+91";
   const [state, setState] = React.useState(false);
-  const [token, settoken] = React.useState("");
+  const [token, settoken] = React.useState(null);
   const [number, setnumber] = React.useState(countrycode);
   const [expandform, setexpandform] = React.useState(false);
   const [captchasize, setcaptchasize] = React.useState("visible");
@@ -108,6 +108,7 @@ const Data = useSelector((state) => state.auth);
           // User signed in successfully.
           const User = result.user;
           console.log(User.uid);
+          console.log(User);
             settoken(User.uid);
             console.log(token);
           setloggedin(true);
