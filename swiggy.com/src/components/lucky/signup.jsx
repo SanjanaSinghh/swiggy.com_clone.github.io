@@ -23,11 +23,11 @@ import { useSelector } from "react-redux";
 const Signup = () => {
   const countrycode = "+91";
   const [state, setState] = React.useState(false);
-  const [token, settoken] = React.useState();
+  const [token, settoken] = React.useState("");
   const [number, setnumber] = React.useState(countrycode);
   const [expandform, setexpandform] = React.useState(false);
   const [captchasize, setcaptchasize] = React.useState("visible");
-  const [otp, setotp] = React.useState();
+  const [otp, setotp] = React.useState("");
   const [loggedin, setloggedin] = React.useState(false);
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
