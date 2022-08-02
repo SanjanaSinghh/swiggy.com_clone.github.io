@@ -1,4 +1,5 @@
 import * as React from "react";
+import  {useEffect} from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -27,6 +28,14 @@ const Navbar = () => {
   const [captchasize, setcaptchasize] = React.useState("visible")
   const [otp, setotp] = React.useState();
 
+    useEffect(() => {
+      // localStorage.setItem()
+    
+      return () => {
+        
+      }
+    }, [])
+    
    const generaterecaptcha = () => {
      window.recaptchaVerifier = new RecaptchaVerifier(
        "recaptcha-container",

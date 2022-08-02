@@ -1,7 +1,7 @@
 import "./App.css";
 import Navbar from "./components/lucky/Navbar";
 import { Route, Routes } from "react-router-dom";
-import Help from "./components/lucky/help";
+import Help from "./components/lucky/user";
 // import Login from "./components/lucky/Login";
 
 function App() {
