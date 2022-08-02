@@ -159,7 +159,6 @@ const Navbar = () => {
       </div>
     </Box>
   );
-  // const token = useSelector((state) => state.auth.token);
 
   const dispatch = useDispatch();
   const handlelogout = () => {
