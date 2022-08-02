@@ -16,28 +16,51 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { authentication } from "./Firebase";
 import { Navigate } from "react-router-dom";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import axios from "axios";
+import { loginloading, sucessLogin } from "../../store/store/auth/action";
+import { useSelector } from "react-redux";
 
 const Signup = () => {
   const countrycode = "+91";
-  // const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [state, setState] = React.useState(false);
   const [token, settoken] = React.useState();
   const [number, setnumber] = React.useState(countrycode);
   const [expandform, setexpandform] = React.useState(false);
   const [captchasize, setcaptchasize] = React.useState("visible");
   const [otp, setotp] = React.useState();
-    const [loggedin, setloggedin] = React.useState(false);
-    const [name, setname] = useState("")
-    const [email, setemail] = useState("")
-    const [password, setpassword] = useState("")
+  const [loggedin, setloggedin] = React.useState(false);
+  const [name, setname] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+const data = useSelector((state) => state.auth);
   const toggleDrawer = (open) => {
     setState(open);
   };
   useEffect(() => {
     toggleDrawer(true);
-
+    
     return () => {};
   }, []);
+// console.log(data.email);
+  const handlelogin = () => {
+    //  console.log(2);
+    dispatch(loginloading());
+    axios({
+      method: "post",
+      url: "http://localhost:4000/users",
+      data: {
+        name: name,
+        email: email,
+          password: password,
+        number: number,
+        token: token,
+      },
+    }).then((res) => {
+        console.log(res.data);
+      dispatch(sucessLogin(res.data.email));
+      console.log(res);
+    });
+  };
 
   const generaterecaptcha = () => {
     window.recaptchaVerifier = new RecaptchaVerifier(
@@ -85,7 +108,9 @@ const Signup = () => {
           const user = result.user;
           console.log(user);
             settoken(user.accessToken);
-            setloggedin(true);
+            console.log(token);
+          setloggedin(true);
+          handlelogin();
           // ...
         })
         .catch((error) => {
@@ -94,8 +119,6 @@ const Signup = () => {
         });
     }
   };
-
-
 
   const list = () => (
     <Box className="drawer" sx={{ width: 350 }} role="presentation">
@@ -142,26 +165,25 @@ const Signup = () => {
           </>
         ) : (
           <>
-            {" "}
             <TextField
               className="textfield1"
               // value={number}
               label={"Name"}
-              onChange={(e) => setnumber(e.target.value)}
+              onChange={(e) => setname(e.target.value)}
               variant="outlined"
             />
             <TextField
               className="textfield1"
               // value={number}
               label={"Email"}
-              onChange={(e) => setnumber(e.target.value)}
+              onChange={(e) => setemail(e.target.value)}
               variant="outlined"
             />
             <TextField
               className="textfield1"
               // value={number}
               label={"Password"}
-              onChange={(e) => setnumber(e.target.value)}
+              onChange={(e) => setpassword(e.target.value)}
               variant="outlined"
             />
             <Button
@@ -189,11 +211,11 @@ const Signup = () => {
   const dispatch = useDispatch();
   const handlelogout = () => {
     dispatch(logoutsuccess());
-    };
-    
-    if (loggedin) {
-      return <Navigate to={"/user"} />;
-    }
+  };
+
+  if (loggedin) {
+    return <Navigate to={"/user"} />;
+  }
 
   return (
     <AppBar position="static">
@@ -205,7 +227,6 @@ const Signup = () => {
         >
           {list()}
         </Drawer>
-           
       </Container>
     </AppBar>
   );

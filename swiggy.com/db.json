@@ -14,6 +14,80 @@
       "release_date": "2022-06-01",
       "vote_average": 6.659,
       "vote_count": 881
+    },
+    {
+      "id": 6,
+      "first_name": "Fred",
+      "last_name": "Blair",
+      "email": "freddyb34@gmail.com"
+    },
+    {
+      "name": "Lucky yadav",
+      "email": "luckyyadav8627@gmail.com",
+      "password": "qwerty",
+      "id": 11
+    },
+    {
+      "name": "Lucky yadav",
+      "email": "luckyyadav8627@gmail.com",
+      "password": "qwerty",
+      "id": 12
+    },
+    {
+      "name": "Lucky yadav",
+      "email": "luckyyadav8627@gmail.com",
+      "password": "svjnvbsmf",
+      "number": "+919485949413",
+      "id": 13
+    },
+    {
+      "name": "Lucky yadav",
+      "email": "luckyyadav8627@gmail.com",
+      "password": "cdvbnm",
+      "number": "+919499370283",
+      "id": 14
+    },
+    {
+      "name": "Lucky yadav",
+      "email": "luckyyadav8627@gmail.com",
+      "password": "qwerfg",
+      "number": "+919485949413",
+      "id": 15
+    },
+    {
+      "name": "Lucky yadav",
+      "email": "luckyyadav8627@gmail.com",
+      "password": "asdfgh",
+      "number": "+918501073850",
+      "id": 16
+    },
+    {
+      "name": "Lucky yadav",
+      "email": "luckyyadav8627@gmail.com",
+      "password": "asdfghjkl",
+      "number": "+919485949413",
+      "id": 17
+    },
+    {
+      "name": "Lucky yadav",
+      "email": "luckyyadav8627@gmail.com",
+      "password": "asdfghj",
+      "number": "+919499370283",
+      "id": 18
+    },
+    {
+      "name": "Lucky yadav",
+      "email": "luckyyadav8627@gmail.com",
+      "password": "dcfvgbhnjmk,",
+      "number": "+918307090235",
+      "id": 19
+    },
+    {
+      "name": "Lucky yadav",
+      "email": "luckyyadav8627@gmail.com",
+      "password": "umjnhybgvf",
+      "number": "+919499370283",
+      "id": 20
     }
   ]
 }

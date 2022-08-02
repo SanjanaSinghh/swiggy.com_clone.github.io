@@ -1,11 +1,18 @@
 import React from "react";
 
+// import { useDispatch } from "react-redux";
+
+import { useSelector } from "react-redux";
+
 const User = () => {
+
+  const email = useSelector((state) => state.auth.email);
+  console.log(email)
   return (
     <div className="body_help">
       <div className="main">
         <div className="js1">
-          <h1 className="jsh1">Help & Support</h1>
+          <h1 className="jsh1">Login Success</h1>
           <div className="jsp1">
             Let's take a step ahead and help you better.
           </div>

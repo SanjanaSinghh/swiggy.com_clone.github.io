@@ -3,6 +3,8 @@ import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "./act
 const init = {
     loading: false,
     error: false,
+    name: "",
+    email:"",
     token:""
 }
 
