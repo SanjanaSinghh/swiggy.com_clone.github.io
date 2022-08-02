@@ -15,6 +15,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import ClearIcon from "@mui/icons-material/Clear";
 import { authentication } from "./Firebase";
+import { Navigate } from "react-router-dom";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 const Signup = () => {
@@ -189,7 +190,9 @@ const Signup = () => {
     dispatch(logoutsuccess());
     };
     
-    
+    if (loggedin) {
+      return <Navigate to={"/user"} />;
+    }
 
   return (
     <AppBar position="static">
