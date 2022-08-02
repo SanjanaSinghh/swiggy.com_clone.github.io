@@ -1,11 +1,10 @@
 import * as React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logoutsuccess } from "../../store/store/auth/action";
 import Drawer from "@mui/material/Drawer";
@@ -20,7 +19,6 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 const Signup = () => {
   const countrycode = "+91";
-  const displayName = "Lucky";
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [state, setState] = React.useState(false);
   const [token, settoken] = React.useState();
@@ -28,7 +26,10 @@ const Signup = () => {
   const [expandform, setexpandform] = React.useState(false);
   const [captchasize, setcaptchasize] = React.useState("visible");
   const [otp, setotp] = React.useState();
-  const [loggedin, setloggedin] = React.useState(false);
+    const [loggedin, setloggedin] = React.useState(false);
+    const [name, setname] = useState("")
+    const [email, setemail] = useState("")
+    const [password, setpassword] = useState("")
   const toggleDrawer = (open) => {
     setState(open);
   };
@@ -204,34 +205,7 @@ const Signup = () => {
         >
           {list()}
         </Drawer>
-        <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            Products Pricing Blog
-            {/* <Link to={"/"}>Private Route</Link> */}
-          </Box>
-          {token ? (
-            <>
-              {/* {()=> toggleDrawer(false)} */}
-              <Box
-                onClick={handlelogout}
-                style={{ cursor: "pointer" }}
-                sx={{ flexGrow: 0 }}
-              >
-                logout
-              </Box>
-            </>
-          ) : (
-            // <Link to="/">
-            <Box
-              style={{ cursor: "pointer" }}
-              sx={{ flexGrow: 0 }}
-              onClick={() => toggleDrawer(true)}
-            >
-              signup
-            </Box>
-            // </Link>
-          )}
-        </Toolbar>
+           
       </Container>
     </AppBar>
   );
