@@ -95,7 +95,10 @@ const Navbar = () => {
     <Box className="drawer" sx={{ width: 350 }} role="presentation">
       <div className="flex_1">
         <div className="jssp1">
-          <ClearIcon className="clearicon"/>
+          <ClearIcon
+            onClick={() => toggleDrawer(false)}
+            className="clearicon"
+          />
           <p className="p1">Login</p>
           <p className="p2">
             or <span className="create_account">create an account</span>{" "}
@@ -109,13 +112,13 @@ const Navbar = () => {
         <div className="textfield">
           <TextField
             className="textfield1"
-          value={number}
-          label={"Phone Number"}
-          onChange={(e) => setnumber(e.target.value)}
-          variant="standard"
-        />
+            value={number}
+            label={"Phone Number"}
+            onChange={(e) => setnumber(e.target.value)}
+            variant="standard"
+          />
         </div>
-        
+
         {expandform === true ? (
           <>
             <TextField
@@ -127,19 +130,25 @@ const Navbar = () => {
             <Button onClick={verifyotp}>Verify</Button>
           </>
         ) : (
-            <>
-          <Button id="button_1"className="login" onClick={requestotp} variant="outlined">
-            Login
+          <>
+            <Button
+              id="button_1"
+              className="login"
+              onClick={requestotp}
+              variant="outlined"
+            >
+              Login
             </Button>
             <p className="p3">
-        By clicking on Login, I accept the <span className="terms">Terms & Conditions</span>  & <span className="terms">Privacy Policy</span> 
-      </p>
-            </>
+              By clicking on Login, I accept the{" "}
+              <span className="terms">Terms & Conditions</span> &{" "}
+              <span className="terms">Privacy Policy</span>
+            </p>
+          </>
         )}
-        
+
         <div id="recaptcha-container"></div>
       </div>
-      
     </Box>
   );
   // const token = useSelector((state) => state.auth.token);
