@@ -1,0 +1,20 @@
+.container{
+    display:flex;
+}
+.row{
+    display:flex;
+   margin-top: -10px;
+}
+.citylist{
+    display:flex;
+    color:white;
+}
+._1_sSy {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+a{
+    text-decoration:none;
+    color:white;
+}
