@@ -27,9 +27,11 @@ const Signup = () => {
   const [expandform, setexpandform] = React.useState(false);
   const [captchasize, setcaptchasize] = React.useState("visible");
   const [otp, setotp] = React.useState();
-
+  const toggleDrawer = (open) => {
+    setState(open);
+  };
   useEffect(() => {
-    // localStorage.setItem()
+    toggleDrawer(true);
 
     return () => {};
   }, []);
@@ -89,9 +91,7 @@ const Signup = () => {
     }
   };
 
-  const toggleDrawer = (open) => {
-    setState(open);
-  };
+
 
   const list = () => (
     <Box className="drawer" sx={{ width: 350 }} role="presentation">
@@ -101,9 +101,9 @@ const Signup = () => {
             onClick={() => toggleDrawer(false)}
             className="clearicon"
           />
-          <p className="p1">Login</p>
+          <p className="p1">Sign up</p>
           <p className="p2">
-            or <span className="create_account">create an account</span>{" "}
+            or <span className="create_account">login to your account</span>{" "}
           </p>
         </div>
         <div>
@@ -111,15 +111,13 @@ const Signup = () => {
         </div>
       </div>
       <div className="jss1">
-        <div className="textfield">
-          <TextField
-            className="textfield1"
-            value={number}
-            label={"Phone Number"}
-            onChange={(e) => setnumber(e.target.value)}
-            variant="standard"
-          />
-        </div>
+        <TextField
+          className="textfield1"
+          value={number}
+          label={"Phone Number"}
+          onChange={(e) => setnumber(e.target.value)}
+          variant="outlined"
+        />
 
         {expandform === true ? (
           <>
@@ -133,6 +131,28 @@ const Signup = () => {
           </>
         ) : (
           <>
+            {" "}
+            <TextField
+              className="textfield1"
+              // value={number}
+              label={"Name"}
+              onChange={(e) => setnumber(e.target.value)}
+              variant="outlined"
+            />
+            <TextField
+              className="textfield1"
+              // value={number}
+              label={"Email"}
+              onChange={(e) => setnumber(e.target.value)}
+              variant="outlined"
+            />
+            <TextField
+              className="textfield1"
+              // value={number}
+              label={"Password"}
+              onChange={(e) => setnumber(e.target.value)}
+              variant="outlined"
+            />
             <Button
               id="button_1"
               className="login"
@@ -192,7 +212,7 @@ const Signup = () => {
               sx={{ flexGrow: 0 }}
               onClick={() => toggleDrawer(true)}
             >
-              Login
+              signup
             </Box>
             // </Link>
           )}

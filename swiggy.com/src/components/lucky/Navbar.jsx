@@ -194,13 +194,25 @@ const Navbar = () => {
             </>
           ) : (
             // <Link to="/">
+              <>
             <Box
               style={{ cursor: "pointer" }}
               sx={{ flexGrow: 0 }}
               onClick={() => toggleDrawer(true)}
             >
               Login
-            </Box>
+                </Box>
+                <Link to={"/signup"}>
+                <Box
+                  className="signup"
+              style={{ cursor: "pointer" }}
+              sx={{ flexGrow: 0 }}
+              // onClick={() => toggleDrawer(true)}
+            >
+              signup
+                  </Box>
+                </Link>
+              </>
             // </Link>
           )}
         </Toolbar>
