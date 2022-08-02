@@ -17,7 +17,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { authentication } from "./Firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
-const Navbar = () => {
+const Signup = () => {
   const countrycode = "+91";
   const displayName = "Lucky";
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -201,4 +201,4 @@ const Navbar = () => {
     </AppBar>
   );
 };
-export default Navbar;
+export default Signup;
