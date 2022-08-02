@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/lucky/Navbar";
 import { Route, Routes } from "react-router-dom";
+import Help from "./components/lucky/help";
 // import Login from "./components/lucky/Login";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        {/* <Route path="/login" element={<Login />}></Route> */}
+        <Route path="/help" element={<Help />}></Route>
       </Routes>
     </div>
   );
