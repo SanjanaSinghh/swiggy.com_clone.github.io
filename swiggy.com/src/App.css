@@ -1,8 +1,13 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .App {
   text-align: center;
 }
 .login_img {
-  width: 22%;
+  margin-top: 40px;
+  width: 100px;
 }
 .drawer {
   padding: 50px;
@@ -20,4 +25,58 @@
   font-weight: 500;
   border: none;
   border-radius: 0%;
+}
+.flex_1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.p1 {
+  font-weight: 500;
+  padding: 0%;
+  margin: 0%;
+  font-size: 30px;
+}
+.p2 {
+  margin: 0%;
+  margin-top: 10px;
+  font-size: 15px;
+}
+.jssp1 {
+  width: 150px;
+}
+.create_account {
+      font-weight: 500;
+    cursor: pointer;
+    color: #fc8019;
+}
+.clearicon {
+      color: #535665;
+    cursor: pointer;
+    font-weight: 600;
+  margin-bottom: 10px;
+}
+.textfield {
+      border: 1px solid #d4d5d9!important;
+  padding: 10px;
+  padding-bottom: 0%;
+}
+.textfield1 {
+  border: none;
+}
+.p3 {
+  margin: 0%;
+  font-size: 12px;
+  color: #686b78;
+  margin-top: 6px;
+  font-weight: 500;
+  margin-top: -20px;
+}
+.terms {
+  color: #282c3f;
+  text-decoration: none;
+}
+.login {
+  margin-bottom: 0%;
 }

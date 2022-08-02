@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1
+    },
+    {
+      "id": 10,
+      "title": "Jurassic World Dominion",
+      "original_language": "en",
+      "original_title": "Jurassic World Dominion",
+      "overview": "Four years after Isla Nublar was destroyed, dinosaurs now live—and hunt—alongside humans all over the world. This fragile balance will reshape the future and determine, once and for all, whether human beings are to remain the apex predators on a planet they now share with history’s most fearsome creatures.",
+      "popularity": 1920.879,
+      "poster_path": "https://image.tmdb.org/t/p/original/kAVRgw7GgK1CfYEJq8ME6EvRIgU.jpg",
+      "release_date": "2022-06-01",
+      "vote_average": 6.659,
+      "vote_count": 881
+    }
+  ]
+}
