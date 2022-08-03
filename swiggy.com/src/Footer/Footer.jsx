@@ -147,16 +147,23 @@ export const Footer = () => {
             width: "93%",
             margin: "auto",
             backgroundColor: "gray",
-            marginTop:"20px",
-            marginBottom:"50px"
+            marginTop: "20px",
+            marginBottom: "50px",
           }}
         ></div>
         <div>
-          <div style={{ color: "gray", marginBlockStart: "1em",
-                marginBlockEnd: "1em",
-                marginInlineStart: "0px",
-                marginInlineEnd: "0px",
-                paddingInlineStart: "40px", }}><p style={{fontSize:'16px',fontWeight:"600"}}>WE DELIVER TO</p></div>
+          <div
+            style={{
+              color: "gray",
+              marginBlockStart: "1em",
+              marginBlockEnd: "1em",
+              marginInlineStart: "0px",
+              marginInlineEnd: "0px",
+              paddingInlineStart: "40px",
+            }}
+          >
+            <p style={{ fontSize: "16px", fontWeight: "600" }}>WE DELIVER TO</p>
+          </div>
           <div class="_1_sSy">
             <ul
               class="_1w9D3"
@@ -190,181 +197,41 @@ export const Footer = () => {
               <li class="_2JILy">Alwar</li>
               <li class="_2JILy">Amalapuram</li>
               <li class="_2JILy">Ambala</li>
-              <li class="_2JILy">
-              
-                  Ambikapur
-              
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/ambur">
-                  Ambur
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/amravati">
-                  Amravati
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/amreli">
-                  Amreli
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/amritsar">
-                  Amritsar
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/anand">
-                  Anand
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/anantapur">
-                  Anantapur
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/angul">
-                  Angul
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/ankleshwar">
-                  Ankleshwar
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/arakkonam">
-                  Arakkonam
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/arambagh">
-                  Arambagh
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/arrah">
-                  Arrah
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/aruppukottai">
-                  Aruppukottai
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/asansol">
-                  Asansol
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/aurangabad">
-                  Aurangabad
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/aurangabad_bihar">
-                  Aurangabad_bihar
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/azamgarh">
-                  Azamgarh
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/baddi">
-                  Baddi
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/bagalkot">
-                  Bagalkot
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/bagdogra">
-                  Bagdogra
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/bagula">
-                  Bagula
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/bahadurgarh">
-                  Bahadurgarh
-                </a>
-              </li>
-              <li class="_2JILy">
-                
-                  Bahraich
-            
-              </li>
-              <li class="_2JILy">
-                
-                  Balaghat
-             
-              </li>
-              <li class="_2JILy">
-              
-                  Balangir
-             
-              </li>
-              <li class="_2JILy">
-               
-                  Balasore
-             
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/ballari">
-                  Ballari
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/balrampur">
-                  Balrampur
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/balurghat">
-                  Balurghat
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/banda">
-                  Banda
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/bangalore">
-                  Bangalore
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/bankabihar">
-                  Bankabihar
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/bankura">
-                  Bankura
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/bantwal">
-                  Bantwal
-                </a>
-              </li>
-              <li class="_2JILy">
-                <a class="_3TjLz b-Hy9" href="/city/bapatlachirala">
-                  Bapatlachirala
-                </a>
-              </li>
+              <li class="_2JILy">Ambikapur</li>
+              <li class="_2JILy">Ambur</li>
+              <li class="_2JILy">Amravati</li>
+              <li class="_2JILy">Amreli</li>
+              <li class="_2JILy">Amritsar</li>
+              <li class="_2JILy">Anand</li>
+              <li class="_2JILy">Anantapur</li>
+              <li class="_2JILy">Angul</li>
+              <li class="_2JILy">Ankleshwar</li>
+              <li>Arakkonam</li>
+              <li class="_2JILy">Arambagh</li>
+              <li class="_2JILy">Arrah</li>
+              <li class="_2JILy">Aruppukottai</li>
+              <li class="_2JILy">Asansol</li>
+              <li class="_2JILy">Aurangabad</li>
+              <li class="_2JILy">Aurangabad_bihar</li>
+              <li class="_2JILy">Azamgarh</li>
+              <li class="_2JILy">Baddi</li>
+              <li class="_2JILy">Bagalkot</li>
+              <li class="_2JILy">Bagdogra</li>
+              <li class="_2JILy">Bagula</li>
+              <li class="_2JILy">Bahadurgarh</li>
+              <li class="_2JILy">Bahraich</li>
+              <li class="_2JILy">Balaghat</li>
+              <li class="_2JILy">Balangir</li>
+              <li class="_2JILy">Balasore</li>
+              <li class="_2JILy">Ballari</li>
+              <li class="_2JILy">Balrampur</li>
+              <li class="_2JILy">Balurghat</li>
+              <li class="_2JILy">Banda</li>
+              <li class="_2JILy">Bangalore</li>
+              <li class="_2JILy">Bankabihar</li>
+              <li class="_2JILy">Bankura</li>
+              <li class="_2JILy">Bantwal</li>
+              <li class="_2JILy">Bapatlachirala</li>
               <li class="_2JILy">
                 <a class="_3TjLz b-Hy9" href="/city/baramati">
                   Baramati
@@ -3005,23 +2872,56 @@ export const Footer = () => {
             width: "93%",
             margin: "auto",
             backgroundColor: "gray",
-            marginTop:"20px",
-            marginBottom:"50px"
+            marginTop: "20px",
+            marginBottom: "50px",
           }}
         ></div>
-        <div style={{display:'flex',justifyContent:"space-between"}}>
+        <div className="logobottom">
+          <div>
+            <img
+              className="logoimg"
+              src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_284/Logo_f5xzza"
+              alt=""
+            />
+          </div>
+          <div className="updateyear">© 2022 Swiggy</div>
+          <div
+            className="socialImages"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              gap: "20px",
+            }}
+          >
             <div>
-            <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_284/Logo_f5xzza" alt="" />
+              <img
+                className="socialImg"
+                src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-facebook_tfqsuc"
+                alt=""
+              />
             </div>
             <div>
-                <p style={{fontSize:'26px',color:"white"}}>© 2022 Swiggy</p>
+              <img
+                className="socialImg"
+                src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-pinterest_kmz2wd"
+                alt=""
+              />
             </div>
-            <div style={{display:'flex',justifyContent:"space-between"}}>
-                <div><img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-facebook_tfqsuc" alt="" /></div>
-                <div><img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-pinterest_kmz2wd" alt="" /></div>
-                <div><img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-instagram_b7nubh" alt="" /></div>
-                <div><img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-twitter_gtq8dv" alt="" /></div>
+            <div>
+              <img
+                className="socialImg"
+                src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-instagram_b7nubh"
+                alt=""
+              />
             </div>
+            <div>
+              <img
+                className="socialImg"
+                src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_48,h_48/icon-twitter_gtq8dv"
+                alt=""
+              />
+            </div>
+          </div>
         </div>
       </div>
     </Header>
