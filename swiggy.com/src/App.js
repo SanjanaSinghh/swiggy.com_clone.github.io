@@ -13,8 +13,8 @@ function App() {
       <Navbar />
       {/* <Help/> */}
       <Routes>
-        <Route path="/user" element={ <Private> <User /></Private> }></Route>
-        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/user" element={  <User /> }></Route>
+        {/* <Route path="/" element={<Navbar />}></Route> */}
       </Routes>
     </div>
   );

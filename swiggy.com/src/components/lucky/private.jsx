@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 const Private = ({ children }) => {
-  const token = useSelector((state) => state.auth.token);
+    const token = useSelector((state) => state.auth.token);
+    console.log(token)
 
   if (!token) {
       return

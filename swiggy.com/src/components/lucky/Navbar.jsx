@@ -81,6 +81,7 @@ const Data = useSelector((state) => state.auth);
        console.log(Data.email);
        console.log(res.data);
        dispatch(sucessLogin(res.data));
+       <Navigate to={"/user"} />;
        console.log(res);
      });
    };
@@ -191,9 +192,14 @@ const Data = useSelector((state) => state.auth);
         .confirm(otp)
         .then((result) => {
           // User signed in successfully.
-          const user = result.user;
-          console.log(user);
-          settoken(user.accessToken)
+          const User = result.user;
+          console.log(User);
+          console.log(result);
+          console.log(User.uid);
+          console.log(User);
+          settoken(User.uid);
+          console.log(token);
+          setloggedin(true);
           // ...
         })
         .catch((error) => {
@@ -393,13 +399,18 @@ const Data = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const handlelogout = () => {
     localStorage.removeItem("number");
-    settoken("")
+    settoken("");
+    expandform(false)
     console.log("success");
+    <Navigate to={"/"} />
     dispatch(logoutsuccess());
   };
   // if (token) {
   //   return <Navigate to={"/user"} />;
   // }
+  if (loggedin) {
+    // return <Navigate to={"/user"} />;
+  }
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
