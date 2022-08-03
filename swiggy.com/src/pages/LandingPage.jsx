@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import swiggyLogo from "../Images/swiggyLogo.png"
 import List from '@mui/material/List';
@@ -9,7 +9,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Box from '@mui/material/Box';
+import CloseIcon from '@mui/icons-material/Close';
 import {Link} from "react-router-dom"
+import swiggyFooter from  "../Images/swiggyFooter.jpg"
 
 // import './App.css';
 
@@ -18,6 +20,34 @@ export const LandingPage = () => {
     const [state,setState]=useState({
         right:false
     })
+
+    const [randomText,setRandomText]=useState("Hungry?")
+    const [index,setIndex]=useState(0)
+    const textArray = [ 'Game night?', 'Unexpected guests?', 'Late night at office?', 'Cooking gone wrong?', 'Movie marathon?']
+    // const index=1
+
+   
+    //     setInterval(() => {
+    //    if(index===textArray.length-1){
+    //     setIndex(0)
+    //    }
+    //    else{
+    //     setRandomText(textArray[index]);
+    //     setIndex(index+1);
+
+    //    }
+    // }, 2000);
+  
+    
+  //  if(index===textArray.length-1){
+  //   clearInterval(interval)
+  //   setIndex(0)
+  //  }
+
+  
+    
+     
+
 
     const toggleDrawer = (anchor, open) => (event) => {
         // console.log(anchor)
@@ -30,76 +60,12 @@ export const LandingPage = () => {
 
       const list = (anchor) => (
         <Box
-          sx={{ width:250 }}
+          sx={{ width:450 }}
           role="presentation"
           onClick={toggleDrawer(anchor, false)}
           onKeyDown={toggleDrawer(anchor, false)}
         >
-          <List>
-            {/* <Link to="/" style={{color:"black"}}> */}
-            <ListItem  disablePadding>
-                <ListItemButton >
-                  <ListItemIcon>
-                   
-                  </ListItemIcon>
-                  <ListItemText primary={"Home"} />
-                </ListItemButton>
-              </ListItem>  
-            {/* </Link> */}
-          </List>
-
-          <List>
-            {/* <Link to="/grocery" style={{color:"black"}}> */}
-            <ListItem  disablePadding>
-                <ListItemButton >
-                  <ListItemIcon>
-                   
-                  </ListItemIcon>
-                  <ListItemText primary={"Grocery"} />
-                </ListItemButton>
-              </ListItem>  
-              {/* Grocery */}
-            {/* </Link> */}
-          </List>
-
-          <List>
-            {/* <Link to="/pharmacy" style={{color:"black"}}> */}
-            <ListItem  disablePadding>
-                <ListItemButton >
-                  <ListItemIcon>
-                   
-                  </ListItemIcon>
-                  <ListItemText primary={"Pharmacy"} />
-                </ListItemButton>
-              </ListItem>  
-            
-            {/* </Link> */}
-          </List>
-          <Divider />
-          <List>
-           {/* {token? */}
-{/*              
-              <ListItem disablePadding>
-                <ListItemButton onClick={handleLogOut}>
-                  <ListItemIcon>
-                   
-                  </ListItemIcon>
-                  <ListItemText primary={"LogOut"} />
-                </ListItemButton> */}
-              {/* </ListItem> */}
-              {
-               <ListItem disablePadding>
-               <ListItemButton>
-                 <ListItemIcon>
-                   {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-                 </ListItemIcon>
-                 <ListItemText primary={"Log In"} />
-               </ListItemButton>
-             </ListItem>
-              
-            }
-            
-          </List>
+         Home
         </Box>
       )
 
@@ -130,7 +96,7 @@ export const LandingPage = () => {
                         </div>
                     </div>
                 </nav>
-                <h1 id="randomTextHeading"></h1>
+                <h1 id="randomTextHeading" >{randomText}</h1>
                 <h2 id="supporterTextHeading">Order food from favourite restaurants near you.</h2>
                 <div id="searchBox">
                     <input id="searchBar" type="text" placeholder="Enter your delivery location " />
@@ -198,6 +164,9 @@ export const LandingPage = () => {
                             >
                              {list("right")}
                             </Drawer>
+{/* <div id="footer" >
+<img src={swiggyFooter}></img>
+</div> */}
 </div>
   )
 }
