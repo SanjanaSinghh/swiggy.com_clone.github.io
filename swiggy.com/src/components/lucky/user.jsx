@@ -1,20 +1,30 @@
 import React from "react";
-
 // import { useDispatch } from "react-redux";
-
 import { useSelector } from "react-redux";
+import Button from "@mui/material/Button";
 
 const User = () => {
 
   const email = useSelector((state) => state.auth.email);
-  console.log(email)
+  const name = useSelector((state) => state.auth.name);
+  const number = useSelector((state) => state.auth.number);
+  console.log(email,name,number)
   return (
     <div className="body_help">
       <div className="main">
         <div className="js1">
-          <h1 className="jsh1">Login Success</h1>
-          <div className="jsp1">
-            Let's take a step ahead and help you better.
+          {name ? <h1>{name}</h1> : ""}
+          {email ? (
+            <h3>
+              {number} . {email}
+            </h3>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="js2">
+          <div className="update">
+            <button className="buttonuser1" >EDIT PROFILE</button>
           </div>
         </div>
       </div>
@@ -44,7 +54,9 @@ const User = () => {
                 </li>
               </ul>
             </div>
-            <div className="js31right"></div>
+            <div className="js31right">
+              <div className="dummy">agrsaezf</div>
+            </div>
           </div>
         </div>
         <div className="js4"></div>

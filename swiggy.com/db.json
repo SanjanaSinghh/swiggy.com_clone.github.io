@@ -1,12 +1,17 @@
 {
   "users": [
     {
+      "name": "Lucky yadav",
+      "email": "luckyyadav8627@gmail.com",
+      "password": "hv n",
+      "number": "+919499370283",
+      "token": null,
       "id": 1
     },
     {
       "name": "Lucky yadav",
       "email": "luckyyadav8627@gmail.com",
-      "password": "tyghb",
+      "password": "sdfghj",
       "number": "+919485949413",
       "token": null,
       "id": 2

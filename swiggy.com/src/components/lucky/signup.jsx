@@ -15,8 +15,12 @@ import Button from "@mui/material/Button";
 import ClearIcon from "@mui/icons-material/Clear";
 import { authentication } from "./Firebase";
 import { Navigate } from "react-router-dom";
-import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
-import axios from "axios";
+import {
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
+  PhoneAuthCredential,
+} from "firebase/auth";
+import axios, { Axios } from "axios";
 import { loginloading, sucessLogin } from "../../store/store/auth/action";
 import { useSelector } from "react-redux";
 
@@ -26,21 +30,43 @@ const Signup = () => {
   const [token, settoken] = React.useState(null);
   const [number, setnumber] = React.useState(countrycode);
   const [expandform, setexpandform] = React.useState(false);
-  const [captchasize, setcaptchasize] = React.useState("visible");
+  // const [captchasize, setcaptchasize] = React.useState("visible");
   const [otp, setotp] = React.useState("");
   const [loggedin, setloggedin] = React.useState(false);
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
+  const [relod, setrelod] = useState("");
+  const [alerts, setalerts] = useState("");
+  const [falsee, setfalsee] = useState(true)
   const [password, setpassword] = useState("");
 const Data = useSelector((state) => state.auth);
   const toggleDrawer = (open) => {
     setState(open);
   };
   useEffect(() => {
-    toggleDrawer(true);
-    
-    return () => {};
+    let nmbar = JSON.parse(localStorage.getItem("number"))
+    let namber = null
+   if (nmbar != null) {
+     axios.get("http://localhost:4000/users").then((resp) => {
+       let data = resp.data;
+       console.log(data);
+       for (let i = 0; i < data.length; i++) {
+         console.log(data[i]["number"]);
+         namber = data[i]["number"];
+         if (namber === undefined) {
+           namber = 1;
+           console.log(2);
+         }
+         if (namber == nmbar) {
+           console.log("number", nmbar);
+         }
+       }
+     });
+   }
+    // toggleDrawer(true);
+    // return () => {};
   }, []);
+ 
 
   const handlelogin = () => {
     //  console.log(2);
@@ -58,7 +84,7 @@ const Data = useSelector((state) => state.auth);
     }).then((res) => {
         console.log(Data.email);
         console.log(res.data);
-      dispatch(sucessLogin(res.data.email));
+      dispatch(sucessLogin(res.data));
       console.log(res);
     });
   };
@@ -67,7 +93,7 @@ const Data = useSelector((state) => state.auth);
     window.recaptchaVerifier = new RecaptchaVerifier(
       "recaptcha-container",
       {
-        size: "normal",
+        size: "invisible",
         callback: (response) => {
           // reCAPTCHA solved, allow signInWithPhoneNumber.
           // onSignInSubmit();
@@ -76,20 +102,60 @@ const Data = useSelector((state) => state.auth);
       authentication
     );
   };
-
   const requestotp = (e) => {
+    e.preventDefault();
+    let nmbr = e.target.value
+    setalerts("");
+    console.log(nmbr);
+    if (nmbr.length >=12) {
+       axios.get("http://localhost:4000/users").then((resp) => {
+      let data = resp.data;
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        console.log(data[i]["number"]);
+        let namber = data[i]["number"];
+        console.log("hhh", number, namber);
+        if (nmbr == namber) {
+          console.log("hhh",number, namber);          
+          setalerts("user already exists");
+          setfalsee(true);
+        } else {
+          setfalsee(false)
+        }
+      }
+    });
+    if (falsee == true) {
+      return;
+    }
+    }   
+
+  };
+  const allow = (e) => {
+    if (falsee == true) {
+      alert("please enter correct details")
+      return;
+    } else {
+      allowotp(e)
+    }
+  }
+
+  const allowotp = (e) => {
     e.preventDefault();
     console.log(number);
     if (number.length >= 12) {
-      console.log(2);
-
+      setrelod(number)
+      console.log(2);        
+      
       generaterecaptcha();
       let appverifier = window.recaptchaVerifier;
+      // new PhoneAuthCredential(authentication, name, email, number, appverifier);
+      // console.log(PhoneAuthCredential);
       signInWithPhoneNumber(authentication, number, appverifier)
         .then((confirmationResult) => {
           window.confirmationResult = confirmationResult;
           setexpandform(true);
-          setcaptchasize("invisible");
+
+          // setcaptchasize("invisible");
         })
         .catch((error) => {
           console.log(error);
@@ -107,20 +173,27 @@ const Data = useSelector((state) => state.auth);
         .then((result) => {
           // User signed in successfully.
           const User = result.user;
+          console.log(result)
           console.log(User.uid);
           console.log(User);
             settoken(User.uid);
             console.log(token);
           setloggedin(true);
+          localStorage.setItem("number",JSON.stringify(number))
           handlelogin();
           // ...
         })
         .catch((error) => {
+          console.log(error);
           // User couldn't sign in (bad verification code?)
           // ...
         });
     }
   };
+  const providenum = (e) => {
+    setnumber(e.target.value);
+    requestotp(e)
+  }
 
   const list = () => (
     <Box className="drawer" sx={{ width: 350 }} role="presentation">
@@ -144,9 +217,10 @@ const Data = useSelector((state) => state.auth);
           className="textfield1"
           value={number}
           label={"Phone Number"}
-          onChange={(e) => setnumber(e.target.value)}
+          onChange={providenum}
           variant="outlined"
         />
+        <div className="alert">{ alerts}</div>
 
         {expandform === true ? (
           <>
@@ -191,7 +265,7 @@ const Data = useSelector((state) => state.auth);
             <Button
               id="button_1"
               className="login"
-              onClick={requestotp}
+              onClick={allow}
               variant="outlined"
             >
               Login
