@@ -1,8 +1,10 @@
 // import logo from './logo.svg';
 import './App.css';
 import './styles/Navbar.css'
+import './styles/Search.css'
 // import { LandingPage } from './pages/LandingPage';
 import { Navbar } from './components/Navbar';
+import { Search } from './pages/Search';
 
 
 
@@ -12,7 +14,7 @@ function App() {
      
       {/* <LandingPage/> */}
       <Navbar/>
-      
+      <Search/>
     </div>
   );
 }
