@@ -90,7 +90,7 @@ const Data = useSelector((state) => state.auth);
      window.recaptchaVerifier = new RecaptchaVerifier(
        "recaptcha-container",
        {
-         size: "normal",
+         size: "invisible",
          callback: (response) => {
            // reCAPTCHA solved, allow signInWithPhoneNumber.
            // onSignInSubmit();
@@ -428,7 +428,7 @@ const Data = useSelector((state) => state.auth);
         >
           {list()}
         </Drawer>
-        <Toolbar disableGutters>
+        <Toolbar disableGutters className="navbar">
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             Products Pricing Blog
             {/* <Link to={"/"}>Private Route</Link> */}
