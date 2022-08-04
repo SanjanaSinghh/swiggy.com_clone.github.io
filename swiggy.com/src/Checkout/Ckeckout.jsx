@@ -1,11 +1,11 @@
-import React from 'react';
-//import CheckoutNavigator from '../../components/molecules/NavHeader';
+import React, { useState, useEffect } from 'react';
+// import CheckoutNavigator from '../../components/molecules/NavHeader';
 import styled from 'styled-components';
-// import Login from './Customer/Login';
-// import Address from './Customer/Address';
-// import Payment from './Customer/Payment';
-// import Orders from './Customer/Orders';
-// import { useLocation } from 'react-router-dom';
+import Login from './Customer/Login';
+import Address from './Customer/Address';
+import Payment from './Customer/Paymet';
+import Orders from './Customer/Orders';
+import './checkout.css'
 
 const Wrapper = styled.div`
     overflow: hidden;
@@ -23,40 +23,40 @@ const Wrapper = styled.div`
 `;
 
 const CheckoutPage = (props) => {
-    const [isAddrSelected, setIsAddrSelected] = React.useState(false);
+    const [isAddrSelected, setIsAddrSelected] = useState(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setIsAddrSelected(false);
     }, [isAddrSelected]);
 
     return (
         <>
             {/* <CheckoutNavigator /> */}
-            <Wrapper className='container-fluid'>
-                <div className='container'>
-                    <div className='row'>
-                        <div className='col-8'>
-                            <div className='row row-cols-1 text-left'>
-                                <div className='col'>
-                                    {/* <Login /> */}
+            <Wrapper >
+                
+                    <div style={{display:"flex", width:"90%",margin:"auto",gap:"30px",padding:"20px"}}>
+                        <div style={{width:"60%"}}>
+                            <div >
+                                <div >
+                                    <Login />
                                 </div>
-                                {/* <div className='col'>
+                                <div >
                                     <Address flag={isAddrSelected} />
-                                </div> */}
+                                </div>
                                 {isAddrSelected ? (
-                                    <div className='col'>
-                                        {/* <Payment /> */}
+                                    <div >
+                                        <Payment />
                                     </div>
                                 ) : (
                                     <div></div>
                                 )}
                             </div>
                         </div>
-                        <div className='col-4'>
-                            {/* <Orders /> */}
+                        <div style={{width:"40%"}}>
+                            <Orders />
                         </div>
                     </div>
-                </div>
+               
             </Wrapper>
         </>
     );

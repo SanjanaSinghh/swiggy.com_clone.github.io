@@ -1,0 +1,6 @@
+.splitscreen{
+    display: flex;
+    gap:50px;
+    width:95%;
+    padding:10px;
+}

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-
+import Location from "./Location";
+import { useNavigate } from "react-router-dom";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import RoomIcon from '@mui/icons-material/Room';
 
 const Wrapper = styled.div`
   font-family: system-ui !important;
@@ -64,9 +67,7 @@ const AddressContainer = styled.button`
   border: 1px dashed #e9e9eb;
   padding: 0px;
   background: white;
-  &:hover {
-    box-shadow: 0 3px 5px 0 rgba(40, 44, 63, 0.4);
-  }
+ 
 `;
 
 const AddLocation = styled.img`
@@ -91,31 +92,64 @@ const Change = styled.button`
   border-radius: 0px;
   color: #fc8019;
   &:hover {
-    background-color: #fc8019;
-    color: #fff !important;
+    cursor:pointer;
   }
 `;
 
 const CurrAddr = () => {
+  const navigate = useNavigate();
   const [addr, setAddr] = useState({});
+  const [flag, setFlag] = useState(true);
+
+  useEffect(() => {
+    //   setAddr(JSON.parse(localStorage.getItem('CustomerCurrentLoc')));
+    setAddr({
+        flat_no:1,
+        landmark:"near hospital",
+        place_name:"mukti",
+        type:"home"
+    })
+  }, []);
+
+  const AddrSelected = () => {
+    navigate({
+      pathname: "/CheckoutPage",
+      isAddrSelected: flag,
+    });
+    setFlag(!flag);
+  };
 
   return (
     <>
-      <div>
-        <div className="container">
-          <AddressContainer>
-            <div className="col-1">
+      <div >
+        <div >
+          <AddressContainer type="button" >
+            <div >
               <AddLocation src="Icons/location.svg" alt="placeholder" />
             </div>
-            <div>
-              <div>
-                <AddAddressTitle>Home</AddAddressTitle>
+            <div >
+              <div >
+                <AddAddressTitle >
+                  Home
+                </AddAddressTitle>
+                <input
+                  type="text"
+                  placeholder="Password"
+                 
+                  onChange={(e) => setAddr(e.target.value)}
+                />
                 <AddressText>
-                  <div></div>
-                  <div>{addr.type} Address</div>
+                  <div >
+                    {addr.flat_no}, {addr.landmark}, {addr.place_name}
+                  </div>
+                  <div >
+                    {addr.type} Address
+                  </div>
                 </AddressText>
                 <b>30 mins</b>
                 <button
+                  type="button"
+                  
                   style={{
                     borderRadius: "0px",
                     marginLeft: "15px",
@@ -129,7 +163,7 @@ const CurrAddr = () => {
           </AddressContainer>
         </div>
       </div>
-      <div>
+      <div >
         <Location />
       </div>
     </>
@@ -137,35 +171,51 @@ const CurrAddr = () => {
 };
 
 const Address = (props) => {
+    const navigate = useNavigate();
   const [addr, setAddr] = useState({});
+  const { flag } = props;
   const [isAddrSelected, setIsAddrSelected] = useState(false);
 
+  useEffect(() => {
+    setIsAddrSelected(flag || false);
+    // setAddr(JSON.parse(localStorage.getItem("CustomerCurrentLoc")));
+    setAddr({flat_no:"Flat No -A3",
+        landmark:"near hospital",
+        place_name:"mukti",
+        type:"home"
+    })
+  }, [flag]);
+
+  const AddrSelected = () => {
+    navigate({
+      pathname: "/CheckoutPage",
+      isAddrSelected: !flag,
+    });
+    // setFlag(!flag);
+  };
 
   if (isAddrSelected) {
     return (
       <>
-        <Wrapper className="container">
+        <Wrapper>
           <div>
             <Logo >
-              <LocationIcon src="Icons/placeholder.svg" alt="placeholder" />
+            <RoomIcon style={{height:"80px",width:"80px"}}/>
             </Logo>
             <div >
-              <div >
+              <div>
                 <div >
                   <Title>
                     Delivery Address
-                    <Tick src="Icons/checkmark.svg" alt="Check" />
+                    <CheckCircleIcon style={{color:"green"}}/>
                   </Title>
                 </div>{" "}
                 <div ></div>
                 <div >
                   <div >
-                    <AddressContainer>
+                    <AddressContainer type="button" >
                       <div >
-                        <AddLocation
-                          src="Icons/location.svg"
-                          alt="placeholder"
-                        />
+
                       </div>
                       <div >
                         <div >
@@ -174,10 +224,10 @@ const Address = (props) => {
                           </AddAddressTitle>
                           <AddressText>
                             <div >
-                            
+                              {addr.flat_no}, {addr.landmark}, {addr.place_name}
                             </div>
                             <div >
-                           
+                              {addr.type} Address
                             </div>
                           </AddressText>
                           <b >30 mins</b>
@@ -186,8 +236,8 @@ const Address = (props) => {
                     </AddressContainer>
                   </div>
                 </div>
-                <div className="col-5">
-                  <Change type="button" className="btn" onClick={AddrSelected}>
+                <div >
+                  <Change style={{background:'none',color:'orangered',border:'none'}}type="button" onClick={AddrSelected}>
                     CHANGE
                   </Change>
                 </div>
@@ -201,19 +251,19 @@ const Address = (props) => {
     return (
       <>
         <>
-          <Wrapper className="container">
-            <div className="row">
-              <Logo className="col-1">
-                <LocationIcon src="Icons/placeholder.svg" alt="placeholder" />
-              </Logo>
-              <div className="col-11">
-                <div className="row ">
-                  <div className="col">
+          <Wrapper>
+            <div >
+            <Logo >
+            <RoomIcon style={{height:"80px",width:"80px"}}/>
+            </Logo>
+              <div >
+                <div >
+                  <div >
                     <Title>Delivery Address</Title>
                   </div>{" "}
-                  <div class="w-100"></div>
+                  <div></div>
                   {localStorage.getItem("CustomerCurrentLoc") == null ? (
-                    <div className="col-5 ">
+                    <div >
                       <Location />
                     </div>
                   ) : (
@@ -221,6 +271,7 @@ const Address = (props) => {
                       <CurrAddr />
                     </>
                   )}
+                 
                 </div>
               </div>
             </div>
