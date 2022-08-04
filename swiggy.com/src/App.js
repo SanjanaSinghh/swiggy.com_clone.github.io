@@ -3,8 +3,8 @@
 import './App.css';
 import './styles/Navbar.css'
 import './styles/Search.css'
-// import { LandingPage } from './pages/LandingPage';
-import { Navbar } from './components/Navbar';
+import { LandingPage } from './pages/LandingPage';
+import  {Navbar}  from './components/Navbar.jsx';
 import { Search } from './pages/Search';
 import "./Lucky.css";
 // import Navbar from "./components/lucky/Navbar";
@@ -22,16 +22,20 @@ import Address from "./components/users/address";
 import Settings from "./components/users/Settings";
 import Support from "./components/Support";
 import Previous_orders from "./components/help.jsx/previous-orders";
+import { RestaurantView } from './pages/RestaurantView';
 // import Login from "./components/lucky/Login";
 
 function App() {
   return (
     <div className="App">
      
-      {/* <LandingPage/> */}
-      <Navbar/>
-      <Search/>
-      {/* <Navbar /> */}
+    {/* <Navbar />
+     <Search/>  */}
+      <LandingPage/>
+     {/* <Navbar/> */}
+      {/* <Navbar/>
+  
+    
       {/* <Help/> */}
       <Routes>
         <Route path="/user" element={ <User > <Orders/> </User> }></Route>
@@ -43,6 +47,8 @@ function App() {
         <Route path="/user/settings" element={<User > <Settings /> </User>}></Route>
 
         <Route path="/support" element={<Support > <Previous_orders /> </Support>}></Route>
+
+        <Route path="/RestaurantView/:Id" element={<RestaurantView/>}></Route>
         
 
       </Routes>

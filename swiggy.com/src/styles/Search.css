@@ -48,25 +48,32 @@ position: relative;
 }
 #display{
     position: absolute;
-    height: auto;
+    min-height: none;
+    max-height: 300px;
     width: 71.5%;
     padding: 5px;
     margin:auto;
-    overflow-y: scroll;
+    overflow-y:hidden;
     position: relative;
     z-index: 100;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
 }
 #display>div{
     display: flex;
     gap: 10px;
     padding: 20px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
+
     /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
     /* row-gap: 10px; */
+}
+#display>div:hover{
+    /* background-color: #282c3f;
+     */
+     background-color: #f5f6f8;
 }
 #display >div>img{
     width: 50px;

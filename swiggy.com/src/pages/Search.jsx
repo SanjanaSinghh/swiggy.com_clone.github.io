@@ -6,6 +6,7 @@ import { useState } from 'react';
 import axios from "axios"
 import { useCallback } from 'react';
 import { Spinner } from '@chakra-ui/react'
+import { Link } from 'react-router-dom';
 // import axios from "a"
 
 export const Search = () => {
@@ -39,13 +40,15 @@ const handleChange=(e)=>{
  setLoading(true)
  axios({
     method:"get",
-    url:`http://localhost:3000/data?q=${value}&_limit=5`
+    url:`http://localhost:4000/data?q=${value}`
  })
  .then((res)=>{setData(res.data);setLoading(false)})
     
 }
 
 const optimisedData=useCallback(debounce(handleChange),[])
+
+
 
   return (
     <div>
@@ -58,13 +61,13 @@ const optimisedData=useCallback(debounce(handleChange),[])
     </div>
 
      {loading?<Spinner/>:<div id="display">
-        {data.map((item)=>{return <div>
+        {data.map((item)=>{return <div  >
             <img src={item.img_url}></img>
-            <div><p>{item.name}</p></div>
+            <div><Link to={`/RestaurantView/${item.id}`}>{item.name}</Link></div>
          </div>})}
     </div>}
 
-     {data.length>0?null:<h3 style={{marginLeft:"15%",marginTop:"50px",color:"gray"}}>Popular Cuisines</h3>}
+     {data.length>0?null:<h3 style={{marginLeft:"15%",marginTop:"50px"}}>Popular Cuisines</h3>}
    
     {data.length>0?null:<div id="popular">
      

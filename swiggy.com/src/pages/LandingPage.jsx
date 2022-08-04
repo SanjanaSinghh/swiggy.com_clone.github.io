@@ -12,6 +12,9 @@ import Box from '@mui/material/Box';
 import CloseIcon from '@mui/icons-material/Close';
 import {Link} from "react-router-dom"
 import swiggyFooter from  "../Images/swiggyFooter.jpg"
+import {Signup} from './Signup';
+import { Login } from './Login';
+import axios from 'axios';
 
 // import './App.css';
 
@@ -21,6 +24,9 @@ export const LandingPage = () => {
         right:false
     })
 
+    const [type,setType]=useState("")
+    const [pinCode,setPinCode]=useState()
+    const [inputValue,setInputValue]=useState("")
     const [randomText,setRandomText]=useState("Hungry?")
     const [index,setIndex]=useState(0)
     const textArray = [ 'Game night?', 'Unexpected guests?', 'Late night at office?', 'Cooking gone wrong?', 'Movie marathon?']
@@ -49,25 +55,38 @@ export const LandingPage = () => {
      
 
 
-    const toggleDrawer = (anchor, open) => (event) => {
+    const toggleDrawer = (anchor, open,type) => (event) => {
         // console.log(anchor)
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-          return;
-        }
-    
+        // if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        //   return;
+        // }
+        setType(type)
         setState({[anchor]: open });
       };
+      
 
       const list = (anchor) => (
+      
         <Box
           sx={{ width:450 }}
           role="presentation"
-          onClick={toggleDrawer(anchor, false)}
-          onKeyDown={toggleDrawer(anchor, false)}
+        //   onClick={toggleDrawer(anchor, false)}
+        //   onKeyDown={toggleDrawer(anchor, false)}
         >
-         Home
+        {type!="login"?<Signup/>: <Login/>}
         </Box>
       )
+
+
+      const handleFindFood=()=>{
+
+        axios({
+            method:"get",
+            url:`https://api.postalpincode.in/pincode/${pinCode}`
+        })
+        .then((res)=>{localStorage.setItem("address",[res.data[0].PostOffice[0].Name])})
+      }
+     
 
   return (
     <div>
@@ -79,10 +98,10 @@ export const LandingPage = () => {
                     <img id="swiggyLogo" src={swiggyLogo} alt="swiggyLogo"/>
                     <div id="navButtonUpperDiv">
                          <div id="navButtonDiv">
-                            <button id="loginBtn" className="navBtn" onClick={toggleDrawer("right", true)}>Login</button>
+                            <button id="loginBtn" className="navBtn" onClick={toggleDrawer("right", true,"login")} >Login</button>
                             {/* <MenuIcon /> */}
                            
-                            <button id="signupBtn" className="navBtn" onClick={toggleDrawer("right", true)}>Sign up</button>
+                            <button id="signupBtn" className="navBtn" onClick={toggleDrawer("right", true,"signup")}>Sign up</button>
                         </div>
 
                     </div>
@@ -99,8 +118,8 @@ export const LandingPage = () => {
                 <h1 id="randomTextHeading" >{randomText}</h1>
                 <h2 id="supporterTextHeading">Order food from favourite restaurants near you.</h2>
                 <div id="searchBox">
-                    <input id="searchBar" type="text" placeholder="Enter your delivery location " />
-                    <button id="searchBtn">FIND FOOD</button>
+                    <input id="searchBar" type={"text"} onChange={(e)=>{setPinCode(e.target.value)}} placeholder="Enter your delivery location " />
+                    <button id="searchBtn" onClick={handleFindFood}>FIND FOOD</button>
                 </div>
                 <h3 id="popularCitiesHeading">POPULAR CITIES IN INDIA</h3>
                 <ul id="popularCitiesList">

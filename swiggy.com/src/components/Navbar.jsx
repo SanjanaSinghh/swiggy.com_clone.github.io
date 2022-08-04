@@ -1,4 +1,5 @@
 import React from 'react'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 export const Navbar = () => {
   return (
@@ -6,7 +7,7 @@ export const Navbar = () => {
     <div id="headerContentContainer">
         <a href="index.html" id="logo"><img src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg"
                 alt="swiggylogo"/></a>
-        <div id="currentLocation">Bangalore, Karnataka, India</div>
+        <div id="currentLocation">{localStorage.getItem("address")}<KeyboardArrowDownIcon color="#ff3d00"/></div>
         <ul id="headerContainerRight">
             <li id="search">
                 <a href="search.html"><img
