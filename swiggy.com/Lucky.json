@@ -24,4 +24,6 @@
       "id": 3
     }
   ]
+  // json-server -p 4000 Lucky.json
 }
+
