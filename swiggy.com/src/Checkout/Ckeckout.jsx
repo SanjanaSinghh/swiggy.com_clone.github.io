@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 // import CheckoutNavigator from '../../components/molecules/NavHeader';
 import styled from 'styled-components';
 import Login from './Customer/Login';
@@ -23,11 +24,13 @@ const Wrapper = styled.div`
 `;
 
 const CheckoutPage = (props) => {
-    const [isAddrSelected, setIsAddrSelected] = useState(false);
+    
+    const dispatch=useDispatch();
+    const isAddrSelected=useSelector(state=>state.cart.isAddress)
 
-    useEffect(() => {
-        setIsAddrSelected(false);
-    }, [isAddrSelected]);
+    // useEffect(() => {
+    //     setIsAddrSelected(true);
+    // }, [isAddrSelected]);
 
     return (
         <>

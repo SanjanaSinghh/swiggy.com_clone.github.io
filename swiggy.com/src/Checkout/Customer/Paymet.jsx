@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Axios from 'axios';
-import axios from 'axios';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 // import { useSelector } from 'react-redux';
 // import Confirmation from "./Confirmation";
 import { useNavigate } from 'react-router-dom';
@@ -59,119 +58,36 @@ function Payment() {
     const navigate = useNavigate();
    // const state = useSelector((state) => state);
     let Total = 100;
-    //state.cart.reduce(
-    //     (acc, item) => acc + Number(item.qty) * Number(item.price),
-    //     50,
-    // );
+    
 
-    async function handlePayment(e) {
+     function handlePayment(e) {
         // console.log(Total);
         e.preventDefault();
-
-        const API_URL = `${process.env.REACT_APP_API_URL}/api/razor/`;
-        const orderUrl = `${API_URL}order/${Total}`;
-        const response = await Axios.get(orderUrl);
-        const { data } = response;
-
-        const options = {
-            key: 'rzp_test_RasK5It8i6ASFZ',
-            name: 'RazorPay',
-            description: 'Integration of Razorpay',
-            order_id: data.id,
-            handler: async (response) => {
-                try {
-                    const paymentId = response.razorpay_payment_id;
-                    const url = `${API_URL}capture/${paymentId}/${Total}`;
-                    const captureResponse = await Axios.post(url, {});
-                    const successObj = JSON.parse(captureResponse.data);
-                    const captured = successObj.captured;
-                    if (captured) {
-                        console.log('success');
-                    }
-                } catch (err) {
-                    console.log(err);
-                } finally {
-                    handleData();
-                }
-            },
-            theme: {
-                color: '#e46d47',
-            },
-        };
-        const rzp1 = new window.Razorpay(options);
-        rzp1.open();
     }
 
-    const handleData = () => {
-        const hotel = JSON.parse(localStorage.getItem('hotel'));
-        const customerId = JSON.parse(localStorage.getItem('customerData'))._id;
-        const address = JSON.parse(localStorage.getItem('CustomerCurrentLoc'));
-        const cart = JSON.parse(localStorage.getItem('cart'));
-
-        let items = [];
-
-        cart.map((item) => {
-            let temp = {
-                name: item.name,
-                price: item.price,
-                quantity: item.qty,
-                veg: item.veg,
-            };
-            items.push(temp);
-        });
-
-        let data = {
-            restaurant_id: hotel._id,
-            restaurant_name: hotel.name,
-            location: hotel.geometry.coordinates,
-            address_1: address.flat_no,
-            address_2: address.landmark,
-            img_url: hotel.img_url,
-            items: items,
-        };
-        // console.log(data);
-        // console.log(customerId);
-
-        var config = {
-            method: 'patch',
-            url: `${process.env.REACT_APP_API_URL}/api/customer/order/${customerId}`,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            data: JSON.stringify(data),
-        };
-
-        axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data));
-               navigate('/Confirmation');
-            })
-            .catch(function (error) {
-                console.log(error.response.data);
-            });
-    };
+    
 
     return (
         <>
             <>
                 <Wrapper >
-                    <div className='row'>
-                        <Logo className='col-1'>
-                            <Wallet src='Icons/wallet.svg' alt='placeholder' />
+                    <div >
+                        <Logo >
+                            <AccountBalanceWalletIcon  style={{ height: "80px", width: "80px" }} />
                         </Logo>
-                        <div className='col-11'>
-                            <div className='row row-cols-1'>
-                                <div className='col'>
+                        <div >
+                            <div >
+                                <div >
                                     <Title>Payment</Title>
                                 </div>
-                                <WarningText className='col-10 ml-3 mb-3 '>
+                                <WarningText>
                                     Please use RazorPay as Payment method as
                                     other services are under Maintenance.
                                 </WarningText>
                                 <button
-                                    className='btn btn-success btn-sm col-3 ml-3 mt-4'
+                                  
                                     onClick={handlePayment}
-                                    // onClick={handleData}
+                                    
                                 >
                                     <img
                                         src='https://razorpay.com/assets/razorpay-logo-white.svg'

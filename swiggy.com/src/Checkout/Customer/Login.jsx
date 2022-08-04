@@ -57,7 +57,7 @@ const Login = () => {
             <Wrapper >
                 <div >
                     <Logo >
-                   < AccountBoxIcon style={{height:"80px",width:"80px"}}/>
+                   < AccountBoxIcon style={{height:"80px",width:"80px",marginLeft:"-50px"}}/>
                     </Logo>
                     <div >
                         <div >

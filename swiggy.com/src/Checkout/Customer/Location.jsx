@@ -6,6 +6,8 @@ import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
 import Map from "./Map";
 import { useNavigate } from "react-router-dom";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 
 const Wrapper = styled.div`
   font-family: system-ui !important;
@@ -286,9 +288,17 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <AddressContainer type="button" onClick={toggleDrawer("left", true)}>
+      <AddressContainer >
+      <Drawer
+        anchor={"left"}
+        open={state["left"]}
+        onClose={toggleDrawer('left', false)}
+      >
+        {list("left")}
+      </Drawer>
         <div>
-          <AddLocation src="Icons/location.svg" alt="placeholder" />
+             <PlaceOutlinedIcon style={{width:"30px",height:"30px"}}/>
+          <AddCircleIcon style={{color:"green",width:"15px",height:"15px"}}/>
         </div>
         <div>
           <div>
@@ -311,9 +321,9 @@ export default function TemporaryDrawer() {
       <Drawer
         anchor={"left"}
         open={state["left"]}
-        // onClose={toggleDrawer('left', false)}
+        onClose={toggleDrawer('left', false)}
       >
-        {list("left")}
+        {list("right")}
       </Drawer>
     </div>
   );
