@@ -10,7 +10,7 @@ const User = ({children}) => {
   const email = useSelector((state) => state.auth.email);
   const name = useSelector((state) => state.auth.name);
   const number = useSelector((state) => state.auth.number);
-  const [isActive1, setIsActive1] = useState(false);
+  const [isActive1, setIsActive1] = useState(true);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
   const [isActive4, setIsActive4] = useState(false);
@@ -90,78 +90,120 @@ const User = ({children}) => {
           <div className="js31">
             <div className="js31left">
               <ul className="jss31ul">
-                <li
-                  className="js31li"
-                  style={{
-                    backgroundColor: isActive1 ? "#ffffff" : "",
-                    color: isActive1 ? "grey" : "",
-                  }}
-                  onClick={handleClick1}
-                >
-                  <Link to={"/user/orders"}>
-                    <span className="js31span">Orders</span>
-                  </Link>
-                </li>
-                <li
-                  className="js31li"
-                  style={{
-                    backgroundColor: isActive2 ? "#ffffff" : "",
-                    color: isActive2 ? "grey" : "",
-                  }}
-                  onClick={handleClick2}
-                >
-                  <Link to={"/user/super"}>
-                    <span className="js31span">Swiggy One</span>
-                  </Link>
-                </li>
-                <li
-                  className="js31li"
-                  style={{
-                    backgroundColor: isActive3 ? "#ffffff" : "",
-                    color: isActive3 ? "grey" : "",
-                  }}
-                  onClick={handleClick3}
-                >
-                  <Link to={"/user/favourites"}>
-                    <span className="js31span">Favourites</span>
-                  </Link>
-                </li>
-                <li
-                  className="js31li"
-                  style={{
-                    backgroundColor: isActive4 ? "#ffffff" : "",
-                    color: isActive4 ? "grey" : "",
-                  }}
-                  onClick={handleClick4}
-                >
-                  <Link to={"/user/payments"}>
-                    <span className="js31span">Payments</span>
-                  </Link>
-                </li>
-                <li
-                  className="js31li"
-                  style={{
-                    backgroundColor: isActive5 ? "#ffffff" : "",
-                    color: isActive5 ? "grey" : "",
-                  }}
-                  onClick={handleClick5}
-                >
-                  <Link to={"/user/orders"}>
-                    <span className="js31span">Addresses</span>
-                  </Link>
-                </li>
-                <li
-                  className="js31li"
-                  style={{
-                    backgroundColor: isActive6 ? "#ffffff" : "",
-                    color: isActive6 ? "grey" : "",
-                  }}
-                  onClick={handleClick6}
-                >
-                  <Link to={"/user/settings"}>
-                    <span className="js31span">Settings</span>
-                  </Link>
-                </li>
+                <Link to={"/user/orders"}>
+                  <li
+                    className="js31li"
+                    style={{
+                      backgroundColor: isActive1 ? "#ffffff" : "",
+                      color: isActive1 ? "grey" : "",
+                    }}
+                    onClick={handleClick1}
+                  >
+                    <span
+                      className="js31span"
+                      style={{
+                        fontWeight: isActive1 ? "bold" : "normal",
+                      }}
+                    >
+                      Orders
+                    </span>
+                  </li>
+                </Link>
+                <Link to={"/user/super"}>
+                  <li
+                    className="js31li"
+                    style={{
+                      backgroundColor: isActive2 ? "#ffffff" : "",
+                      color: isActive2 ? "grey" : "",
+                    }}
+                    onClick={handleClick2}
+                  >
+                    <span
+                      className="js31span"
+                      style={{
+                        fontWeight: isActive2 ? "bold" : "normal",
+                      }}
+                    >
+                      Swiggy One
+                    </span>
+                  </li>
+                </Link>
+                <Link to={"/user/favourites"}>
+                  <li
+                    className="js31li"
+                    style={{
+                      backgroundColor: isActive3 ? "#ffffff" : "",
+                      color: isActive3 ? "grey" : "",
+                    }}
+                    onClick={handleClick3}
+                  >
+                    <span
+                      className="js31span"
+                      style={{
+                        fontWeight: isActive3 ? "bold" : "normal",
+                      }}
+                    >
+                      Favourites
+                    </span>
+                  </li>
+                </Link>
+                <Link to={"/user/payments"}>
+                  <li
+                    className="js31li"
+                    style={{
+                      backgroundColor: isActive4 ? "#ffffff" : "",
+                      color: isActive4 ? "grey" : "",
+                    }}
+                    onClick={handleClick4}
+                  >
+                    <span
+                      className="js31span"
+                      style={{
+                        fontWeight: isActive4 ? "bold" : "normal",
+                      }}
+                    >
+                      Payments
+                    </span>
+                  </li>{" "}
+                </Link>
+                <Link to={"/user/addresses"}>
+                  <li
+                    className="js31li"
+                    style={{
+                      backgroundColor: isActive5 ? "#ffffff" : "",
+                      color: isActive5 ? "grey" : "",
+                    }}
+                    onClick={handleClick5}
+                  >
+                    <span
+                      className="js31span"
+                      style={{
+                        fontWeight: isActive5 ? "bold" : "normal",
+                      }}
+                    >
+                      Addresses
+                    </span>
+                  </li>
+                </Link>
+                <Link to={"/user/settings"}>
+                  <li
+                    className="js31li"
+                    style={{
+                      backgroundColor: isActive6 ? "#ffffff" : "",
+                      color: isActive6 ? "grey" : "",
+                    }}
+                    onClick={handleClick6}
+                  >
+                    <span
+                      className="js31span"
+                      style={{
+                        fontWeight: isActive6 ? "bold" : "normal",
+                      }}
+                    >
+                      Settings
+                    </span>
+                  </li>
+                </Link>
               </ul>
             </div>
             <div className="js31right">

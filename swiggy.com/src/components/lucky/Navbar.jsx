@@ -21,98 +21,96 @@ import { Navigate } from "react-router-dom";
 import { loginloading, sucessLogin } from "../../store/store/auth/action";
 
 const Navbar = () => {
-  const countrycode = "+91"
-  const displayName = "Lucky"
+  const countrycode = "+91";
+  const displayName = "Lucky";
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [state1, setState1] = React.useState(false);
   const [state, setState] = React.useState(false);
-  const [token, settoken] = React.useState("")
+  const [token, settoken] = React.useState("");
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [relod, setrelod] = useState("");
   const [password, setpassword] = useState("");
   const [number, setnumber] = React.useState(countrycode);
   const [expandform, setexpandform] = React.useState(false);
-  const [captchasize, setcaptchasize] = React.useState("visible")
+  const [captchasize, setcaptchasize] = React.useState("visible");
   const [alerts, setalerts] = useState("");
   const [otp, setotp] = React.useState();
   const [falsee, setfalsee] = useState(true);
   const [loggedin, setloggedin] = React.useState(false);
-const Data = useSelector((state) => state.auth);
+  const Data = useSelector((state) => state.auth);
 
-      useEffect(() => {
-        let nmbar = JSON.parse(localStorage.getItem("number"));
-        let namber = null;
-        if (nmbar != null) {
-          axios.get("http://localhost:4000/users").then((resp) => {
-            let data = resp.data;
-            console.log(data);
-            for (let i = 0; i < data.length; i++) {
-              console.log(data[i]["number"]);
-              namber = data[i]["number"];
-              if (namber === undefined) {
-                namber = 1;
-                console.log(2);
-              }
-              if (namber == nmbar) {
-                console.log("number", nmbar);
-              }
-            }
-          });
+  useEffect(() => {
+    let nmbar = JSON.parse(localStorage.getItem("number"));
+    let namber = null;
+    if (nmbar != null) {
+      axios.get("http://localhost:4000/users").then((resp) => {
+        let data = resp.data;
+        console.log(data);
+        for (let i = 0; i < data.length; i++) {
+          console.log(data[i]["number"]);
+          namber = data[i]["number"];
+          if (namber === undefined) {
+            namber = 1;
+            console.log(2);
+          }
+          if (namber == nmbar) {
+            console.log("number", nmbar);
+          }
         }
-        // toggleDrawer(true);
-        // return () => {};
-      }, []);
-  
-   const handlelogin = () => {
-     //  console.log(2);
-     dispatch(loginloading());
-     axios({
-       method: "post",
-       url: "http://localhost:4000/users",
-       data: {
-         name: name,
-         email: email,
-         password: password,
-         number: number,
-         token: token,
-       },
-     }).then((res) => {
-       console.log(Data.email);
-       console.log(res.data);
-       dispatch(sucessLogin(res.data));
-       <Navigate to={"/user"} />;
-       console.log(res);
-     });
-   };
-    
-   const generaterecaptcha = () => {
-     window.recaptchaVerifier = new RecaptchaVerifier(
-       "recaptcha-container",
-       {
-         size: "invisible",
-         callback: (response) => {
-           // reCAPTCHA solved, allow signInWithPhoneNumber.
-           // onSignInSubmit();
-         },
-       },
-       authentication
-     );
-   }
+      });
+    }
+    // toggleDrawer(true);
+    // return () => {};
+  }, []);
 
+  const handlelogin = () => {
+    //  console.log(2);
+    dispatch(loginloading());
+    axios({
+      method: "post",
+      url: "http://localhost:4000/users",
+      data: {
+        name: name,
+        email: email,
+        password: password,
+        number: number,
+        token: token,
+      },
+    }).then((res) => {
+      console.log(Data.email);
+      console.log(res.data);
+      dispatch(sucessLogin(res.data));
+      <Navigate to={"/user"} />;
+      console.log(res);
+    });
+  };
+
+  const generaterecaptcha = () => {
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      "recaptcha-container",
+      {
+        size: "invisible",
+        callback: (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          // onSignInSubmit();
+        },
+      },
+      authentication
+    );
+  };
 
   const requestotp1 = (e) => {
-   
     e.preventDefault();
     console.log(number);
     if (number.length >= 12) {
-       console.log(2);
-      
+      console.log(2);
+
       generaterecaptcha();
       let appverifier = window.recaptchaVerifier;
       signInWithPhoneNumber(authentication, number, appverifier)
         .then((confirmationResult) => {
-          window.confirmationResult = confirmationResult
+          window.confirmationResult = confirmationResult;
           setexpandform(true);
           setcaptchasize("invisible");
         })
@@ -122,69 +120,68 @@ const Data = useSelector((state) => state.auth);
         });
     }
   };
-   const requestotp = (e) => {
-     e.preventDefault();
-     let nmbr = e.target.value;
-     setalerts("");
-     console.log(nmbr);
-     if (nmbr.length >= 12) {
-       axios.get("http://localhost:4000/users").then((resp) => {
-         let data = resp.data;
-         console.log(data);
-         for (let i = 0; i < data.length; i++) {
-           console.log(data[i]["number"]);
-           let namber = data[i]["number"];
-           console.log("hhh", number, namber);
-           if (nmbr == namber) {
-             console.log("hhh", number, namber);
-             setalerts("user already exists");
-             setfalsee(true);
-           } else {
-             setfalsee(false);
-           }
-         }
-       });
-       if (falsee == true) {
-         return;
-       }
-     }
-   };
-
-   const allow = (e) => {
-     if (falsee == true) {
-       alert("please enter correct details");
-       return;
-     } else {
-       allowotp(e);
-     }
+  const requestotp = (e) => {
+    e.preventDefault();
+    let nmbr = e.target.value;
+    setalerts("");
+    console.log(nmbr);
+    if (nmbr.length >= 12) {
+      axios.get("http://localhost:4000/users").then((resp) => {
+        let data = resp.data;
+        console.log(data);
+        for (let i = 0; i < data.length; i++) {
+          console.log(data[i]["number"]);
+          let namber = data[i]["number"];
+          console.log("hhh", number, namber);
+          if (nmbr == namber) {
+            console.log("hhh", number, namber);
+            setalerts("user already exists");
+            setfalsee(true);
+          } else {
+            setfalsee(false);
+          }
+        }
+      });
+      if (falsee == true) {
+        return;
+      }
+    }
   };
-   const allowotp = (e) => {
-     e.preventDefault();
-     console.log(number);
-     if (number.length >= 12) {
-       setrelod(number);
-       console.log(2);
 
-       generaterecaptcha();
-       let appverifier = window.recaptchaVerifier;
-       // new PhoneAuthCredential(authentication, name, email, number, appverifier);
+  const allow = (e) => {
+    if (falsee == true) {
+      alert("please enter correct details");
+      return;
+    } else {
+      allowotp(e);
+    }
+  };
+  const allowotp = (e) => {
+    e.preventDefault();
+    console.log(number);
+    if (number.length >= 12) {
+      setrelod(number);
+      console.log(2);
+
+      generaterecaptcha();
+      let appverifier = window.recaptchaVerifier;
+      // new PhoneAuthCredential(authentication, name, email, number, appverifier);
       //  console.log(PhoneAuthCredential);
-       signInWithPhoneNumber(authentication, number, appverifier)
-         .then((confirmationResult) => {
-           window.confirmationResult = confirmationResult;
-           setexpandform(true);
+      signInWithPhoneNumber(authentication, number, appverifier)
+        .then((confirmationResult) => {
+          window.confirmationResult = confirmationResult;
+          setexpandform(true);
 
-           // setcaptchasize("invisible");
-         })
-         .catch((error) => {
-           console.log(error);
-           // ...
-         });
-     }
-   };
+          // setcaptchasize("invisible");
+        })
+        .catch((error) => {
+          console.log(error);
+          // ...
+        });
+    }
+  };
 
   const verifyotp1 = () => {
-     
     if (otp.length === 6) {
       console.log(otp);
       let confirmationResult = window.confirmationResult;
@@ -207,7 +204,7 @@ const Data = useSelector((state) => state.auth);
           // ...
         });
     }
-  }
+  };
   const verifyotp = () => {
     if (otp.length === 6) {
       console.log(otp);
@@ -234,13 +231,13 @@ const Data = useSelector((state) => state.auth);
         });
     }
   };
- 
+
   const toggleDrawer1 = (open) => {
-    console.log(1)
+    console.log(1);
     setState1(open);
   };
   const toggleDrawer = (open) => {
-    console.log(2)
+    console.log(2);
     setState(open);
   };
   const providenum = (e) => {
@@ -400,9 +397,9 @@ const Data = useSelector((state) => state.auth);
   const handlelogout = () => {
     localStorage.removeItem("number");
     settoken("");
-    expandform(false)
+    expandform(false);
     console.log("success");
-    <Navigate to={"/"} />
+    <Navigate to={"/"} />;
     dispatch(logoutsuccess());
   };
   // if (token) {
@@ -430,9 +427,11 @@ const Data = useSelector((state) => state.auth);
         </Drawer>
         <Toolbar disableGutters className="navbar">
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            Products Pricing Blog
+            <Link to={"/support"}>
+            <div>Help</div></Link>
             {/* <Link to={"/"}>Private Route</Link> */}
           </Box>
+
           {token ? (
             <>
               {/* {()=> toggleDrawer(false)} */}

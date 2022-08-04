@@ -18,7 +18,6 @@ import { Navigate } from "react-router-dom";
 import {
   RecaptchaVerifier,
   signInWithPhoneNumber,
-  PhoneAuthCredential,
 } from "firebase/auth";
 import axios, { Axios } from "axios";
 import { loginloading, sucessLogin } from "../../store/store/auth/action";
