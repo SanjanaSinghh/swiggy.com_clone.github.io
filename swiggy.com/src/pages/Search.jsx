@@ -80,3 +80,4 @@ const optimisedData=useCallback(debounce(handleChange),[])
     </div>
   )
 }
+export default Search

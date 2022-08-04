@@ -4,8 +4,8 @@ import './App.css';
 import './styles/Navbar.css'
 import './styles/Search.css'
 // import { LandingPage } from './pages/LandingPage';
-import { Navbar } from './components/Navbar';
-import { Search } from './pages/Search';
+import Navbar  from './components/Navbar';
+import  Search  from './pages/Search';
 import "./Lucky.css";
 // import Navbar from "./components/lucky/Navbar";
 import { Route, Routes } from "react-router-dom";
