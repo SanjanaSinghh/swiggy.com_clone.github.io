@@ -1,4 +1,5 @@
 
+
 import './App.css';
 import './styles/Navbar.css'
 import './styles/Search.css'
