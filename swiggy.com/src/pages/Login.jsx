@@ -51,10 +51,10 @@ export const Login = () => {
         setState1(open);
       };
 
-      const toggleDrawer = (open) => {
-        console.log(2);
-        setState(open);
-      };
+      // const toggleDrawer = (open) => {
+      //   console.log(2);
+      //   setState(open);
+      // };
       const providenum = (e) => {
         setnumber(e.target.value);
         requestotp(e);

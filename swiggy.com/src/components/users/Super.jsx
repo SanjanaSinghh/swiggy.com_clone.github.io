@@ -6,9 +6,10 @@ const Super = () => {
   return (
     <div className='jsa'>
       <div className="jsaleft">
-        <h2>Swiggy One</h2>
-        <p>Get free delivery and extra discounts all across Swiggy.</p>
-        <p>Your Swiggy One benefits can be availed only on the Swiggy App.</p>
+        <div className='jsah2'>Swiggy One</div>
+        <p className='jsap1'>Get free delivery and extra discounts all across Swiggy.
+        <br />
+        Your Swiggy One benefits can be availed only on the Swiggy App.</p>
         <div className="stores">
           <img src={appstore} alt="" />
           <img src={playstore} alt="" />

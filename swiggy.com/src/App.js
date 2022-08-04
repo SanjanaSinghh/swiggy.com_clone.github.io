@@ -22,16 +22,19 @@ import Address from "./components/users/address";
 import Settings from "./components/users/Settings";
 import Support from "./components/Support";
 import Previous_orders from "./components/help.jsx/previous-orders";
+import Legal from "./components/help.jsx/Legal";
 import { RestaurantView } from './pages/RestaurantView';
+import General from './components/help.jsx/General';
+import Partner_Onboarding from "./components/help.jsx/Partner_Onbording";
 // import Login from "./components/lucky/Login";
 
 function App() {
   return (
     <div className="App">
      
-    {/* <Navbar />
-     <Search/>  */}
-      <LandingPage/>
+    <Navbar />
+     {/* <Search/>  */}
+      {/* <LandingPage/> */}
      {/* <Navbar/> */}
       {/* <Navbar/>
   
@@ -47,6 +50,10 @@ function App() {
         <Route path="/user/settings" element={<User > <Settings /> </User>}></Route>
 
         <Route path="/support" element={<Support > <Previous_orders /> </Support>}></Route>
+        <Route path="/support/issues/orders" element={<Support > <Previous_orders /> </Support>}></Route>
+        <Route path="/support/issues/general" element={<Support > <General /> </Support>}></Route>
+        <Route path="/support/issues/partner-onboarding" element={<Support > <Partner_Onboarding /> </Support>}></Route>
+        <Route path="/support/issues/legal" element={<Support > <Legal /> </Support>}></Route>
 
         <Route path="/RestaurantView/:Id" element={<RestaurantView/>}></Route>
         
