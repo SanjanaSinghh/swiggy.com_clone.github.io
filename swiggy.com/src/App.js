@@ -23,7 +23,7 @@ import Settings from "./components/users/Settings";
 import Support from "./components/Support";
 import Previous_orders from "./components/help.jsx/previous-orders";
 import Legal from "./components/help.jsx/Legal";
-import { RestaurantView } from './pages/RestaurantView';
+// import { RestaurantView } from './pages/RestaurantView';
 import General from './components/help.jsx/General';
 import Partner_Onboarding from "./components/help.jsx/Partner_Onbording";
 // import Login from "./components/lucky/Login";

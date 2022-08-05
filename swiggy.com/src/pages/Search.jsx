@@ -127,7 +127,7 @@ const fetchRemainingData=()=>{
       <div id="random_data">
           {extraData.map((item)=>{return <div>
               <div className="img_box"><img src={item.img_url} alt="loading..."></img></div>
-           <div className="description">
+             <div className="description">
               <div>{item.name}</div>
               <div style={{ color: "#696b79"}}>★{item.rating}  • {item.average_time}min • ₹{item.average_cost} for two </div>
               <div style={{ color: "#93959f"}}>•{item.cuisines.map((el) => {return el} )}</div>
