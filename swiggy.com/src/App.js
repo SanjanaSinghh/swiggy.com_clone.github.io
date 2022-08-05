@@ -22,22 +22,17 @@ import Address from "./components/users/address";
 import Settings from "./components/users/Settings";
 import Support from "./components/Support";
 import Previous_orders from "./components/help.jsx/previous-orders";
-import { RestaurantView } from './pages/RestaurantView';
-// import Login from "./components/lucky/Login";
 
 function App() {
   return (
     <div className="App">
      
-    {/* <Navbar />
-     <Search/>  */}
-      <LandingPage/>
-     {/* <Navbar/> */}
-      {/* <Navbar/>
-  
     
-      {/* <Help/> */}
-      <Routes>
+  
+    <Routes>
+       <Route path="/" element={<LandingPage/>}></Route>
+        <Route path="/navbar" element={<Navbar/>}></Route>
+        <Route path="/search" element={<Search/>}></Route>
         <Route path="/user" element={ <User > <Orders/> </User> }></Route>
         <Route path="/user/orders" element={ <User > <Orders/> </User> }></Route>
         <Route path="/user/super" element={ <User > <Super/> </User> }></Route>
@@ -45,13 +40,10 @@ function App() {
         <Route path="/user/payments" element={ <User > <Payments/> </User> }></Route>
         <Route path="/user/addresses" element={ <User > <Address/> </User> }></Route>
         <Route path="/user/settings" element={<User > <Settings /> </User>}></Route>
-
         <Route path="/support" element={<Support > <Previous_orders /> </Support>}></Route>
+       <Route path="*" element={<LandingPage/>}></Route>
 
-        <Route path="/RestaurantView/:Id" element={<RestaurantView/>}></Route>
-        
-
-      </Routes>
+    </Routes>
     </div>
   );
 }

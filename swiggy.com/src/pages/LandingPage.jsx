@@ -15,6 +15,7 @@ import swiggyFooter from  "../Images/swiggyFooter.jpg"
 import {Signup} from './Signup';
 import { Login } from './Login';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 // import './App.css';
 
@@ -30,6 +31,7 @@ export const LandingPage = () => {
     const [randomText,setRandomText]=useState("Hungry?")
     const [index,setIndex]=useState(0)
     const textArray = [ 'Game night?', 'Unexpected guests?', 'Late night at office?', 'Cooking gone wrong?', 'Movie marathon?']
+    const navigate=useNavigate()
     // const index=1
 
    
@@ -85,6 +87,8 @@ export const LandingPage = () => {
             url:`https://api.postalpincode.in/pincode/${pinCode}`
         })
         .then((res)=>{localStorage.setItem("address",[res.data[0].PostOffice[0].Name])})
+        .catch((err)=>console.log(err))
+
       }
      
 
@@ -119,7 +123,7 @@ export const LandingPage = () => {
                 <h2 id="supporterTextHeading">Order food from favourite restaurants near you.</h2>
                 <div id="searchBox">
                     <input id="searchBar" type={"text"} onChange={(e)=>{setPinCode(e.target.value)}} placeholder="Enter your delivery location " />
-                    <button id="searchBtn" onClick={handleFindFood}>FIND FOOD</button>
+                    <button id="searchBtn" onClick={handleFindFood}><Link to={"/navbar"}>FIND FOOD</Link></button>
                 </div>
                 <h3 id="popularCitiesHeading">POPULAR CITIES IN INDIA</h3>
                 <ul id="popularCitiesList">

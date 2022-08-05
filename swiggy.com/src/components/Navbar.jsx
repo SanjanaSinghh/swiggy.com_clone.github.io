@@ -1,33 +1,38 @@
 import React from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Search from '@mui/icons-material/Search';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   return (
-    <div id="headerContainer">
+       <div id="headerContainer">
     <div id="headerContentContainer">
-        <a href="index.html" id="logo"><img src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg"
-                alt="swiggylogo"/></a>
-        <div id="currentLocation">{localStorage.getItem("address")}<KeyboardArrowDownIcon color="#ff3d00"/></div>
+        <Link to=""  id="logo"><img src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg"
+                alt="swiggylogo"/></Link>
+        <div id="currentLocation" style={{hover:{color:"orange"}}}>{localStorage.getItem("address")}<KeyboardArrowDownIcon color="#ff3d00"/></div>
         <ul id="headerContainerRight">
             <li id="search">
-                <a href="search.html"><img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/2048px-Search_Icon.svg.png"/>Search</a>
+                <Link  to="/search"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/2048px-Search_Icon.svg.png"/>Search</Link>
             </li>
             <li id="offer">
-                <a href="offers.html"><img src="https://static.thenounproject.com/png/971055-200.png" alt=""/>
-                    Offers</a>
+                <Link to="" ><img src="https://static.thenounproject.com/png/971055-200.png" alt=""/>
+                    Offers</Link>
             </li>
             <li id="help">
-                <a href="help.html"><img src="https://cdn.pixabay.com/photo/2016/07/23/13/18/pokemon-1536847_960_720.png"
-                        alt=""/> Help</a>
+                <Link to="" > <img src="https://cdn.pixabay.com/photo/2016/07/23/13/18/pokemon-1536847_960_720.png"
+                        alt=""/> Help</Link>
             </li>
             <li id="signIn">
-            <a href="./landingPage.html" id="signInA"><img src="https://www.transparentpng.com/thumb/user/single-user-icon-png-free--rLHSHx.png" alt=""/>Guest</a>
+            <Link to=""  id="signInA"><img src="https://www.transparentpng.com/thumb/user/single-user-icon-png-free--rLHSHx.png" alt=""/>Guest</Link>
         </li>
-            <li id="cart"><a href="./checkout.html"> Cart<span id="noOfCartItems"></span></a></li>
+            <li id="cart"><Link to="" > Cart<span id="noOfCartItems"></span></Link></li>
         </ul>
     </div>
 </div>
+
+
+
   )
 }
 export default Navbar
