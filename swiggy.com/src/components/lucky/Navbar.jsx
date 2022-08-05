@@ -462,9 +462,7 @@ const Navbar = () => {
               >
                 signup
               </Box>
-              {/* </Link> */}
             </>
-            // </Link>
           )}
         </Toolbar>
       </Container>

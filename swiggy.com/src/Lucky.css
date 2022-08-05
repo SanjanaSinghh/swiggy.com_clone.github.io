@@ -196,10 +196,43 @@ a {
   display: flex;
   flex-direction: row;
   gap: 20px;
+  padding-top: 30px;
 }
 .jsaright img {
-  max-width: 400px;
+  max-width: 370px;
 }
 .jsaleft {
   column-gap: 50px;
+}
+.jsb {
+  text-align: center;
+}
+.jsbp1 {
+  font-size: 20px;
+    color: #535665;
+    font-weight: 500;
+    margin-top: 32px;
+}
+.jsbp2 {
+      font-size: 11px;
+    color: #7e808c;
+    margin-top: 8px;
+    letter-spacing: 0.1ch;
+}
+.jsah2 {
+  font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #282c3f;
+}
+.jsap1 {
+      margin: 20px 0;
+    font-size: 16px;
+    line-height: 42px;
+    color: #686b78;
+    position: relative;
+    z-index: 1;
+}
+.stores img {
+  padding: 10px;
 }

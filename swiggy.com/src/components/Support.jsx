@@ -1,5 +1,7 @@
+// import { Link } from "@mui/material";
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Support = ({ children }) => {
   const [isActive1, setIsActive1] = useState(true);
@@ -127,74 +129,82 @@ const Support = ({ children }) => {
           <div className="js31">
             <div className="js31left">
               <ul className="jss31ul">
-                <li
-                  className="js31li"
-                  style={{
-                    backgroundColor: isActive1 ? "#ffffff" : "",
-                    color: isActive1 ? "grey" : "",
-                  }}
-                  onClick={handleClick1}
-                >
-                  <span
-                    className="js31span"
+                <Link to={"/support/issues/orders"}>
+                  <li
+                    className="js31li"
                     style={{
-                      fontWeight: isActive1 ? "bold" : "normal",
+                      backgroundColor: isActive1 ? "#ffffff" : "",
+                      color: isActive1 ? "grey" : "",
                     }}
+                    onClick={handleClick1}
                   >
-                    Help with orders
-                  </span>
-                </li>
-                <li
-                  className="js31li"
-                  style={{
-                    backgroundColor: isActive2 ? "#ffffff" : "",
-                    color: isActive2 ? "grey" : "",
-                  }}
-                  onClick={handleClick2}
-                >
-                  <span
-                    className="js31span"
+                    <span
+                      className="js31span"
+                      style={{
+                        fontWeight: isActive1 ? "bold" : "normal",
+                      }}
+                    >
+                      Help with orders
+                    </span>
+                  </li>
+                </Link>
+                <Link to={"/support/issues/general"}>
+                  <li
+                    className="js31li"
                     style={{
-                      fontWeight: isActive2 ? "bold" : "normal",
+                      backgroundColor: isActive2 ? "#ffffff" : "",
+                      color: isActive2 ? "grey" : "",
                     }}
+                    onClick={handleClick2}
                   >
-                    General issues
-                  </span>
-                </li>
-                <li
-                  className="js31li"
-                  style={{
-                    backgroundColor: isActive3 ? "#ffffff" : "",
-                    color: isActive3 ? "grey" : "",
-                  }}
-                  onClick={handleClick3}
-                >
-                  <span
-                    className="js31span"
+                    <span
+                      className="js31span"
+                      style={{
+                        fontWeight: isActive2 ? "bold" : "normal",
+                      }}
+                    >
+                      General issues
+                    </span>
+                  </li>
+                </Link>
+                <Link to={"/support/issues/partner-onboarding"}>
+                  <li
+                    className="js31li"
                     style={{
-                      fontWeight: isActive3 ? "bold" : "normal",
+                      backgroundColor: isActive3 ? "#ffffff" : "",
+                      color: isActive3 ? "grey" : "",
                     }}
+                    onClick={handleClick3}
                   >
-                    Partner Onboarding
-                  </span>
-                </li>
-                <li
-                  className="js31li"
-                  style={{
-                    backgroundColor: isActive4 ? "#ffffff" : "",
-                    color: isActive4 ? "grey" : "",
-                  }}
-                  onClick={handleClick4}
-                >
-                  <span
-                    className="js31span"
+                    <span
+                      className="js31span"
+                      style={{
+                        fontWeight: isActive3 ? "bold" : "normal",
+                      }}
+                    >
+                      Partner Onboarding
+                    </span>
+                  </li>
+                </Link>
+                <Link to={"/support/issues/legal"}>
+                  <li
+                    className="js31li"
                     style={{
-                      fontWeight: isActive4 ? "bold" : "normal",
+                      backgroundColor: isActive4 ? "#ffffff" : "",
+                      color: isActive4 ? "grey" : "",
                     }}
+                    onClick={handleClick4}
                   >
-                    Legal Terms & Conditions{" "}
-                  </span>
-                </li>
+                    <span
+                      className="js31span"
+                      style={{
+                        fontWeight: isActive4 ? "bold" : "normal",
+                      }}
+                    >
+                      Legal Terms & Conditions{" "}
+                    </span>
+                  </li>
+                </Link>
                 <li
                   className="js31li"
                   style={{

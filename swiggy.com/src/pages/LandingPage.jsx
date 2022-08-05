@@ -58,10 +58,6 @@ export const LandingPage = () => {
 
 
     const toggleDrawer = (anchor, open,type) => (event) => {
-        // console.log(anchor)
-        // if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-        //   return;
-        // }
         setType(type)
         setState({[anchor]: open });
       };
@@ -72,8 +68,6 @@ export const LandingPage = () => {
         <Box
           sx={{ width:450 }}
           role="presentation"
-        //   onClick={toggleDrawer(anchor, false)}
-        //   onKeyDown={toggleDrawer(anchor, false)}
         >
         {type!="login"?<Signup/>: <Login/>}
         </Box>
