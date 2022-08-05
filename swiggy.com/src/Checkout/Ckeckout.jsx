@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import CheckoutNavigator from '../../components/molecules/NavHeader';
+
 import styled from 'styled-components';
 import Login from './Customer/Login';
 import Address from './Customer/Address';
 import Payment from './Customer/Paymet';
 import Orders from './Customer/Orders';
 import './checkout.css'
+import CheckoutNavigator from './CheckoutNav';
 
 const Wrapper = styled.div`
     overflow: hidden;
     font-family: sans-serif;
     min-height: 100%;
     background: #e9ecee;
-    margin-top: 5.2%;
+    margin-top: 1.2%;
     padding-bottom: 10%;
     font-size: 14px;
     line-height: 1.2;
@@ -34,7 +36,7 @@ const CheckoutPage = (props) => {
 
     return (
         <>
-            {/* <CheckoutNavigator /> */}
+            <CheckoutNavigator />
             <Wrapper >
                 
                     <div style={{display:"flex", width:"90%",margin:"auto",gap:"30px",padding:"20px"}}>
