@@ -32,29 +32,124 @@ import Partner_Onboarding from "./components/help.jsx/Partner_Onbording";
 function App() {
   return (
     <div className="App">
-     
-    <Routes>
-       <Route path="/" element={<LandingPage/>}></Route>
-        <Route path="/navbar" element={<Navbar/>}></Route>
-        <Route path="/search" element={<Search/>}></Route>
-        <Route path="/user" element={ <User > <Orders/> </User> }></Route>
-        <Route path="/user/orders" element={ <User > <Orders/> </User> }></Route>
-        <Route path="/user/super" element={ <User > <Super/> </User> }></Route>
-        <Route path="/user/favourites" element={ <User > <Favourites/> </User> }></Route>
-        <Route path="/user/payments" element={ <User > <Payments/> </User> }></Route>
-        <Route path="/user/addresses" element={ <User > <Address/> </User> }></Route>
-        <Route path="/user/settings" element={<User > <Settings /> </User>}></Route>
-        <Route path="/support" element={<Support > <Previous_orders /> </Support>}></Route>
+      <Routes>
+        <Route path="/" element={<LandingPage />}></Route>
+        <Route path="/navbar" element={<Navbar />}></Route>
+        <Route path="/search" element={<Search />}></Route>
+        <Route
+          path="/user"
+          element={
+            <Navbar>
+              <User>
+                {" "}
+                <Orders />{" "}
+              </User>
+            </Navbar>
+          }
+        ></Route>
+        <Route
+          path="/user/orders"
+          element={
+            <User>
+              {" "}
+              <Orders />{" "}
+            </User>
+          }
+        ></Route>
+        <Route
+          path="/user/super"
+          element={
+            <User>
+              {" "}
+              <Super />{" "}
+            </User>
+          }
+        ></Route>
+        <Route
+          path="/user/favourites"
+          element={
+            <User>
+              {" "}
+              <Favourites />{" "}
+            </User>
+          }
+        ></Route>
+        <Route
+          path="/user/payments"
+          element={
+            <User>
+              {" "}
+              <Payments />{" "}
+            </User>
+          }
+        ></Route>
+        <Route
+          path="/user/addresses"
+          element={
+            <User>
+              {" "}
+              <Address />{" "}
+            </User>
+          }
+        ></Route>
+        <Route
+          path="/user/settings"
+          element={
+            <User>
+              {" "}
+              <Settings />{" "}
+            </User>
+          }
+        ></Route>
+        <Route
+          path="/support"
+          element={
+            <Support>
+              {" "}
+              <Previous_orders />{" "}
+            </Support>
+          }
+        ></Route>
 
-       <Route path="*" element={<LandingPage/>}></Route>
+        <Route path="*" element={<LandingPage />}></Route>
 
-        <Route path="/support/issues/orders" element={<Support > <Previous_orders /> </Support>}></Route>
-        <Route path="/support/issues/general" element={<Support > <General /> </Support>}></Route>
-        <Route path="/support/issues/partner-onboarding" element={<Support > <Partner_Onboarding /> </Support>}></Route>
-        <Route path="/support/issues/legal" element={<Support > <Legal /> </Support>}></Route>
-
-
-    </Routes>
+        <Route
+          path="/support/issues/orders"
+          element={
+            <Support>
+              {" "}
+              <Previous_orders />{" "}
+            </Support>
+          }
+        ></Route>
+        <Route
+          path="/support/issues/general"
+          element={
+            <Support>
+              {" "}
+              <General />{" "}
+            </Support>
+          }
+        ></Route>
+        <Route
+          path="/support/issues/partner-onboarding"
+          element={
+            <Support>
+              {" "}
+              <Partner_Onboarding />{" "}
+            </Support>
+          }
+        ></Route>
+        <Route
+          path="/support/issues/legal"
+          element={
+            <Support>
+              {" "}
+              <Legal />{" "}
+            </Support>
+          }
+        ></Route>
+      </Routes>
     </div>
   );
 }
