@@ -41,8 +41,7 @@ function App() {
           element={
             <Navbar>
               <User>
-                {" "}
-                <Orders />{" "}
+                <Orders />
               </User>
             </Navbar>
           }
@@ -51,8 +50,7 @@ function App() {
           path="/user/orders"
           element={
             <User>
-              {" "}
-              <Orders />{" "}
+              <Orders />
             </User>
           }
         ></Route>
@@ -60,8 +58,7 @@ function App() {
           path="/user/super"
           element={
             <User>
-              {" "}
-              <Super />{" "}
+              <Super />
             </User>
           }
         ></Route>
@@ -69,8 +66,7 @@ function App() {
           path="/user/favourites"
           element={
             <User>
-              {" "}
-              <Favourites />{" "}
+              <Favourites />
             </User>
           }
         ></Route>
@@ -78,8 +74,7 @@ function App() {
           path="/user/payments"
           element={
             <User>
-              {" "}
-              <Payments />{" "}
+              <Payments />
             </User>
           }
         ></Route>
@@ -87,8 +82,7 @@ function App() {
           path="/user/addresses"
           element={
             <User>
-              {" "}
-              <Address />{" "}
+              <Address />
             </User>
           }
         ></Route>
@@ -96,8 +90,7 @@ function App() {
           path="/user/settings"
           element={
             <User>
-              {" "}
-              <Settings />{" "}
+              <Settings />
             </User>
           }
         ></Route>
@@ -105,8 +98,7 @@ function App() {
           path="/support"
           element={
             <Support>
-              {" "}
-              <Previous_orders />{" "}
+              <Previous_orders />
             </Support>
           }
         ></Route>
@@ -117,8 +109,7 @@ function App() {
           path="/support/issues/orders"
           element={
             <Support>
-              {" "}
-              <Previous_orders />{" "}
+              <Previous_orders />
             </Support>
           }
         ></Route>
@@ -126,8 +117,7 @@ function App() {
           path="/support/issues/general"
           element={
             <Support>
-              {" "}
-              <General />{" "}
+              <General />
             </Support>
           }
         ></Route>
@@ -135,8 +125,7 @@ function App() {
           path="/support/issues/partner-onboarding"
           element={
             <Support>
-              {" "}
-              <Partner_Onboarding />{" "}
+              <Partner_Onboarding />
             </Support>
           }
         ></Route>
@@ -144,8 +133,7 @@ function App() {
           path="/support/issues/legal"
           element={
             <Support>
-              {" "}
-              <Legal />{" "}
+              <Legal />
             </Support>
           }
         ></Route>
