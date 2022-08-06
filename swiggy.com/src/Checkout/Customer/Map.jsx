@@ -14,7 +14,7 @@ const Loc = styled.img`
 `;
 
 const MAPBOX_TOKEN =
-    'pk.eyJ1IjoiZmFoZHNoYWlraCIsImEiOiJja2gzYzB3a3YwaXlsMnJvaWJ3ZDdiYzBpIn0.EC5-vAFFL-32D0ZCkCkQFg';
+    'pk.eyJ1IjoibGF3YW5kZXByYW5hdiIsImEiOiJjbDZndXV6cGsxYXpsM2NuMjJ2b3ZuaXl2In0.lfwvGfZKGhhX1mkF8H17aA';
 
 const Map = () => {
     const [customerCoords, setCustomerCoords] = useState({});
@@ -24,8 +24,8 @@ const Map = () => {
     const [viewPort, setViewPort] = useState({
         width: 'inherit',
         height: 'inherit',
-        latitude: data.lat, // 18.634363666666665  initially showing  Area Search Coordinates
-        longitude: data.long, // 73.78761533333333
+        latitude:18.5204, // 18.634363666666665  initially showing  Area Search Coordinates
+        longitude: 73.8567, // 73.78761533333333
         zoom: 10,
     });
 
@@ -42,7 +42,7 @@ const Map = () => {
         bottom: 70,
         margin: 10,
     };
-    // console.log(customerCoords);
+     console.log(customerCoords);
 
     useEffect(() => {
         Geolocation(customerCoords);
@@ -78,7 +78,7 @@ const Map = () => {
                     long,
                     place_name,
                 };
-                console.log('getLocation', Coordinates);
+                // console.log('getLocation', Coordinates);
                 localStorage.setItem(
                     'CustomerCurrentLoc',
                     JSON.stringify(Coordinates),
@@ -99,12 +99,12 @@ const Map = () => {
                 mapStyle='mapbox://styles/mapbox/light-v10'
             >
                 <Marker
-                    key={data.lat}
-                    latitude={data.lat}
-                    longitude={data.long}
+                    key={18.5204}
+                    latitude={18.5204}
+                    longitude={73.8567}
                 >
                     <Loc src='/Icons/mapbox.svg' alt='location' />
-                    {data.area}
+                    {""}
                 </Marker>
                 <GeolocateControl
                     style={geolocateStyle}

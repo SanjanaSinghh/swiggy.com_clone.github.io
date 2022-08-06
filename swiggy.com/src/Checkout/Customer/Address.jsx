@@ -89,8 +89,7 @@ const CurrAddr = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [addr, setAddr] = useState({});
-  const [flag, setFlag] = useState(true);
-
+ 
   useEffect(() => {
     //   setAddr(JSON.parse(localStorage.getItem('CustomerCurrentLoc')));
     setAddr({
@@ -102,7 +101,13 @@ const CurrAddr = () => {
   }, []);
 
   const AddrSelected = () => {
-    dispatch(isAddressSelected(true));
+    
+    if(addr==null){
+        dispatch(isAddressSelected(false));
+    }else{
+        dispatch(isAddressSelected(true));
+    }
+    
   };
 
   return (

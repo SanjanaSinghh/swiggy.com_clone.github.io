@@ -30,9 +30,6 @@ const CheckoutPage = (props) => {
     const dispatch=useDispatch();
     const isAddrSelected=useSelector(state=>state.cart.isAddress)
 
-    // useEffect(() => {
-    //     setIsAddrSelected(true);
-    // }, [isAddrSelected]);
 
     return (
         <>

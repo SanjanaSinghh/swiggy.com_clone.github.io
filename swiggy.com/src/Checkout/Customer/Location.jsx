@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import clsx from "clsx";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import styled from "styled-components";
-import TextField from "@material-ui/core/TextField";
+
 import Map from "./Map";
 import { useNavigate } from "react-router-dom";
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
+import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+
+import Box from "@mui/material/Box";
+
+import IconButton from "@mui/material/IconButton";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 
 const Wrapper = styled.div`
   font-family: system-ui !important;
@@ -32,7 +40,7 @@ const Wrapper = styled.div`
 
 const Middle = styled.div`
   margin-top: 80px;
-  width: 80%;
+  width: 100%;
   div {
     // border: 1px solid red;
     // padding: 10px;
@@ -56,7 +64,21 @@ const MapContainer = styled.div`
 `;
 
 const Button2 = styled.button`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  --padding-x: 1.2em;
+  width: 38%;
+  height: 60px;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: none;
   border-radius: 0px;
+  background-color: transparent;
+  font-size: 15px;
+  color: rgb(100, 100, 100);
   &:hover {
     color: #fff;
     background-color: black;
@@ -83,6 +105,11 @@ const Wrapper2 = styled.div`
 `;
 
 const Button = styled.button`
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  margin-left: 45px;
+  margin-bottom: 30px;
   box-shadow: 0 2px 8px #d4d5d9;
   background-color: #fc8019;
   border-radius: 0px;
@@ -99,8 +126,25 @@ const Button = styled.button`
   }
 `;
 
+const AddressBox = styled.input`
+  border: 1px solid gray;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  width: 98.5%;
+  height: 60px;
+  margin: auto;
+  ::placeholder {
+    font-size: 16px;
+    color: rgb(170, 170, 170);
+    letter-spacing: 0.5px;
+
+    padding: 20px;
+  }
+`;
+
 const Heading = styled.div`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #282c3f;
 `;
@@ -130,6 +174,14 @@ const AddressContainer = styled.button`
     box-shadow: 0 3px 5px 0 rgba(40, 44, 63, 0.4);
   }
 `;
+const CheckoutBox = styled.button`
+  border: none;
+  padding: 0px;
+  background: transparent;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 const AddLocation = styled.img`
   height: 25px;
@@ -139,21 +191,13 @@ const AddLocation = styled.img`
   // box-shadow: 0 3px 5px 0 rgba(40, 44, 63, 0.4);
 `;
 
-const useStyles = makeStyles({
-  list: {
-    width: 450,
-  },
-  fullList: {
-    width: "auto",
-  },
-});
 
-export default function TemporaryDrawer() {
+const Location = () => {
   const navigate = useNavigate();
   const [flatNo, setFlatNo] = useState("");
   const [landmark, setLandmark] = useState("");
   const [type, setType] = useState("");
-  const classes = useStyles();
+
   const [state, setState] = React.useState({
     left: false,
   });
@@ -183,122 +227,104 @@ export default function TemporaryDrawer() {
     navigate("/CheckoutPage");
   };
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
+  const toggleDrawer = (open) => {
+    setState(open);
   };
 
-  const list = (anchor) => (
-    <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === "top" || anchor === "bottom",
-      })}
-      role="presentation"
-    >
+  const list = () => (
+    <Box sx={{ width: 450 }} role="presentation">
       <Wrapper>
-        <div style={{ width: "65%" }}>
-          <div>
-            <button
-              type="button"
-              onClick={toggleDrawer(anchor, false)}
-            ></button>
-            <Heading>Save delivery address</Heading>
-          </div>
+        <div
+          style={{
+            display: "flex",
+            padding: "20px",
+            height: "30px",
+            marginLeft: "20px",
+            gap: "10px",
+            alignItems: "center",
+            verticalAlign: "center",
+          }}
+        >
+          <CheckoutBox
+            onClick={() => {
+              toggleDrawer(false);
+            }}
+          >
+            <CloseOutlinedIcon style={{ fontSize: "24px", marginTop: "5px" }} />
+          </CheckoutBox>
+          <Heading>Save delivery address</Heading>
         </div>
       </Wrapper>
       <Middle>
         <div>
           <div>
-            <MapContainer>
-              <Map />
-            </MapContainer>
+            <MapContainer>{/* <Map /> */}</MapContainer>
+            <div></div>
           </div>
-          <div
-            style={{
-              paddingLeft: "15px",
-              paddingRight: "15px",
-            }}
-          >
-            <TextField
-              label="Door/Flat No."
-              placeholder=""
-              fullWidth
-              variant="outlined"
-              style={{
-                marginLeft: "0px",
-                borderRadius: "0px",
-              }}
-              onChange={(e) => {
-                setFlatNo(e.target.value);
-              }}
-            />
-          </div>
-          <div
-            style={{
-              paddingLeft: "15px",
-              paddingRight: "15px",
-            }}
-          >
-            <TextField
-              label="Landmark"
-              placeholder=""
-              fullWidth
-              variant="outlined"
-              style={{
-                marginLeft: "0px",
-                borderRadius: "0px",
-              }}
-              onChange={(e) => {
-                setLandmark(e.target.value);
-              }}
-            />
-          </div>
-          <div>
+          <div style={{ width: "80%", margin: "auto" }}>
             <div>
-              <div>
-                <Button2 type="button" onClick={() => setType("Home")}>
-                  Home
-                </Button2>
-                <Button2 type="button" onClick={() => setType("Work")}>
-                  Work
-                </Button2>
-                <Button2 type="button" onClick={() => setType("Other")}>
-                  Other
-                </Button2>
-              </div>
+              <AddressBox
+                placeholder="Door/Flat No."
+                onChange={(e) => {
+                  setFlatNo(e.target.value);
+                }}
+              />
+            </div>
+            <div>
+              <AddressBox
+                placeholder="Landmark"
+                style={{
+                  borderTop: "none",
+                }}
+                onChange={(e) => {
+                  setLandmark(e.target.value);
+                }}
+              />
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                width: "100%",
+                margin: "auto",
+              }}
+            >
+              <Button2 type="button" onClick={() => setType("Home")}>
+                <HomeOutlinedIcon /> Home
+              </Button2>
+              <Button2 type="button" onClick={() => setType("Work")}>
+                <WorkOutlineIcon /> Work
+              </Button2>
+              <Button2 type="button" onClick={() => setType("Other")}>
+                <RoomOutlinedIcon /> Other
+              </Button2>
             </div>
           </div>
         </div>
       </Middle>
-      <Wrapper2>
-        <div style={{ width: "75%" }}>
-          <Button type="button" onClick={getUserLocation}>
-            SAVE ADDRESS & PROCEED
-          </Button>
-        </div>
-      </Wrapper2>
-    </div>
+      <Button type="button" onClick={getUserLocation}>SAVE ADDRESS & PROCEED </Button>
+    </Box>
   );
+
+  
 
   return (
     <div>
-      <AddressContainer >
-      <Drawer
-        anchor={"left"}
-        open={state["left"]}
-        onClose={toggleDrawer('left', false)}
-      >
-        {list("left")}
-      </Drawer>
+      <AddressContainer>
+        <Drawer
+          anchor={"left"}
+          open={state}
+          onClose={() => {
+            toggleDrawer(false);
+          }}
+        >
+          {list("left")}
+        </Drawer>
         <div>
-             <PlaceOutlinedIcon style={{width:"30px",height:"30px"}}/>
-          <AddCircleIcon style={{color:"green",width:"15px",height:"15px"}}/>
+          <PlaceOutlinedIcon style={{ width: "30px", height: "30px" }} />
+          <AddCircleIcon
+            style={{ color: "green", width: "15px", height: "15px" }}
+          />
         </div>
         <div>
           <div>
@@ -306,25 +332,22 @@ export default function TemporaryDrawer() {
             <AddressText>
               <div>PCMC Pune.</div>
             </AddressText>
-            <button
-              type="button"
-              style={{
-                borderRadius: "0px",
-                marginLeft: "15px",
+            <IconButton
+              onClick={() => {
+                toggleDrawer(true);
               }}
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
             >
-              Add New
-            </button>
+              Add new
+            </IconButton>
           </div>
         </div>
       </AddressContainer>
-      <Drawer
-        anchor={"left"}
-        open={state["left"]}
-        onClose={toggleDrawer('left', false)}
-      >
-        {list("right")}
-      </Drawer>
     </div>
   );
-}
+};
+export default Location;
