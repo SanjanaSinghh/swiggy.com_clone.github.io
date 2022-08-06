@@ -248,7 +248,16 @@ export const Navbar = () => {
      const toggleDrawer = (open) => {
        console.log(2);
        setState(open);
-     };
+  };
+  const handledrawers = () => {
+    toggleDrawer1(true)
+    toggleDrawer(false)
+  }
+  const handledrawers1 = () => {
+    toggleDrawer1(false)
+    toggleDrawer(true)
+  }
+  
      const providenum = (e) => {
        setnumber(e.target.value);
        requestotp(e);
@@ -263,7 +272,10 @@ export const Navbar = () => {
              />
              <p className="p1">Login</p>
              <p className="p2">
-               or <span className="create_account">create an account</span>{" "}
+               or{" "}
+               <span className="create_account" onClick={() => handledrawers1()}>
+                 create an account
+               </span>{" "}
              </p>
            </div>
            <div>
@@ -323,7 +335,13 @@ export const Navbar = () => {
              />
              <p className="p1">Sign up</p>
              <p className="p2">
-               or <span className="create_account">login to your account</span>{" "}
+               or{" "}
+               <span
+                 className="create_account"
+                 onClick={() => handledrawers()}
+               >
+                 login to your account
+               </span>{" "}
              </p>
            </div>
            <div>
@@ -343,7 +361,7 @@ export const Navbar = () => {
            {expandform === true ? (
              <>
                <TextField
-                 value= {otp}
+                 value={otp}
                  label="Enter otp"
                  onChange={(e) => setotp(e.target.value)}
                  variant="outlined"
@@ -399,7 +417,7 @@ export const Navbar = () => {
            <div id="recaptcha-container"></div>
          </div>
        </Box>
-    );
+     );
     
   const dispatch = useDispatch();
   const handlelogout = () => {
