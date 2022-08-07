@@ -296,7 +296,7 @@ export const Signup = () => {
           <Button
             id="button_1"
             className="verify"
-            onClick={verifyotp}
+            onClick={()=> verifyotp}
             variant="outlined"
           >
             Verify
@@ -328,7 +328,7 @@ export const Signup = () => {
           <Button
             id="button_1"
             className="login"
-            onClick={allow}
+            onClick={()=>allow}
             variant="outlined"
           >
             Login

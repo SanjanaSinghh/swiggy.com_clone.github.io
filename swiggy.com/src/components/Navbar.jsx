@@ -1,6 +1,6 @@
 import React from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
+import { getAuth, signOut } from "firebase/auth";
 import Search from '@mui/icons-material/Search';
 // import { Link } from 'react-router-dom';
 
@@ -28,8 +28,11 @@ import { loginloading, sucessLogin } from "../store/store/auth/action";
 
 
 export const Navbar = () => {
+  
+              // localStorage.setItem("number", JSON.stringify(+919499370283));
   const countrycode = "+91";
-  const displayName = "Lucky";
+  const auth = getAuth();
+  // const displayName = "Lucky";
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [state1, setState1] = React.useState(false);
   const [state, setState] = React.useState(false);
@@ -46,12 +49,13 @@ export const Navbar = () => {
   const [falsee, setfalsee] = useState(true);
   const [loggedin, setloggedin] = React.useState(false);
     const Data = useSelector((state) => state.auth);
-    
+      const dispatch = useDispatch();
   const namee = useSelector((state) => state.auth.name);
 
       useEffect(() => {
         let nmbar = JSON.parse(localStorage.getItem("number"));
         let namber = null;
+        console.log(nmbar)
         if (nmbar != null) {
           axios.get("http://localhost:4000/users").then((resp) => {
             let data = resp.data;
@@ -65,6 +69,7 @@ export const Navbar = () => {
               }
               if (namber == nmbar) {
                 console.log("number", nmbar);
+                collectdata(namber)
               }
             }
           });
@@ -72,6 +77,26 @@ export const Navbar = () => {
         // toggleDrawer(true);
         // return () => {};
       }, []);
+       
+  const collectdata = (num) => {
+    console.log(num);
+         axios.get("http://localhost:4000/users").then((resp) => {
+           let data = resp.data;
+           console.log(data);
+           for (let i = 0; i < data.length; i++) {
+             let namber = data[i]["number"];
+             if (namber === num) {
+             console.log("from database", namber);
+               console.log(data[i]);
+               dispatch(sucessLogin(data[i]));
+               settoken("fcgvbhnj")
+               console.log(token);
+          // console.log(res);
+             }
+            
+           }
+         });
+        }
 
       const handlelogin = () => {
         //  console.log(2);
@@ -112,7 +137,7 @@ export const Navbar = () => {
       const requestotp1 = (e) => {
         e.preventDefault();
         console.log(number);
-        if (number.length >= 12) {
+        if (number.length > 12) {
           console.log(2);
 
           generaterecaptcha();
@@ -127,6 +152,8 @@ export const Navbar = () => {
               console.log(error);
               // ...
             });
+        } else {
+          alert("please enter valid mobile number");
         }
       };
       const requestotp = (e) => {
@@ -199,15 +226,21 @@ export const Navbar = () => {
               // User signed in successfully.
               const User = result.user;
               console.log(User);
-              console.log(result);
+              // console.log(result);
               console.log(User.uid);
-              console.log(User);
+              // console.log(User);
+              collectdata(number);
               settoken(User.uid);
+                toggleDrawer1(false);
+                toggleDrawer(false);
               console.log(token);
               setloggedin(true);
+              localStorage.setItem("number", JSON.stringify(number));
+              setotp("")
               // ...
             })
             .catch((error) => {
+              console.log(error);
               // User couldn't sign in (bad verification code?)
               // ...
             });
@@ -272,10 +305,13 @@ export const Navbar = () => {
              />
              <p className="p1">Login</p>
              <p className="p2">
-               or{" "}
-               <span className="create_account" onClick={() => handledrawers1()}>
+               or
+               <span
+                 className="create_account"
+                 onClick={() => handledrawers1()}
+               >
                  create an account
-               </span>{" "}
+               </span>
              </p>
            </div>
            <div>
@@ -301,14 +337,21 @@ export const Navbar = () => {
                  onChange={(e) => setotp(e.target.value)}
                  variant="outlined"
                />
-               <Button onClick={verifyotp1}>Verify</Button>
+               <Button
+                 id="button_1"
+                 className="verify"
+                 onClick={()=>verifyotp1()}
+                 variant="outlined"
+               >
+                 Verify
+               </Button>
              </>
            ) : (
              <>
                <Button
                  id="button_1"
                  className="login"
-                 onClick={requestotp1}
+                 onClick={(e)=> requestotp1(e)}
                  variant="outlined"
                >
                  Login
@@ -335,13 +378,13 @@ export const Navbar = () => {
              />
              <p className="p1">Sign up</p>
              <p className="p2">
-               or{" "}
+               or
                <span
                  className="create_account"
                  onClick={() => handledrawers()}
                >
                  login to your account
-               </span>{" "}
+               </span>
              </p>
            </div>
            <div>
@@ -369,7 +412,7 @@ export const Navbar = () => {
                <Button
                  id="button_1"
                  className="verify"
-                 onClick={verifyotp}
+                 onClick={()=>verifyotp()}
                  variant="outlined"
                >
                  Verify
@@ -401,7 +444,7 @@ export const Navbar = () => {
                <Button
                  id="button_1"
                  className="login"
-                 onClick={allow}
+                 onClick={(e)=> allow(e)}
                  variant="outlined"
                >
                  Sign Up
@@ -419,18 +462,27 @@ export const Navbar = () => {
        </Box>
      );
     
-  const dispatch = useDispatch();
+
   const handlelogout = () => {
     localStorage.removeItem("number");
+     signOut(auth)
+       .then(() => {
+         console.log("sign out success");
+         // Sign-out successful.
+       })
+       .catch((error) => {
+         console.log("error");
+         // An error happened.
+       });
     settoken("");
-    expandform(false);
-    console.log("success");
+    setexpandform(false);
+    console.log("logout success");
+   
     <Navigate to={"/"} />;
     dispatch(logoutsuccess());
   };
 
   return (
-
     //    <div id="headerContainer">
     // <div id="headerContentContainer">
     //     <Link to=""  id="logo"><img src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg"
@@ -455,8 +507,7 @@ export const Navbar = () => {
     //         <li id="cart"><Link to="" > Cart<span id="noOfCartItems"></span></Link></li>
     //      </ul>
     <div id="headerContainer">
-
-    <div id="headerContentContainer">
+      <div id="headerContentContainer">
         <Drawer
           anchor={"right"}
           open={state1}
@@ -472,7 +523,7 @@ export const Navbar = () => {
           {list()}
         </Drawer>
 
-       <Link to=""  id="logo">
+        <Link to="" id="logo">
           <img
             src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg"
             alt="swiggylogo"
@@ -484,13 +535,13 @@ export const Navbar = () => {
         </div>
         <ul id="headerContainerRight">
           <li id="search">
-          <Link to="/search"  >
+            <Link to="/search">
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/2048px-Search_Icon.svg.png" />
               Search
             </Link>
           </li>
           <li id="offer">
-          <Link to="" >
+            <Link to="">
               <img
                 src="https://static.thenounproject.com/png/971055-200.png"
                 alt=""
@@ -508,7 +559,7 @@ export const Navbar = () => {
             </Link>
           </li>
           <li id="signIn">
-          <Link to=""  id="signInA">
+            <Link to="" id="signInA">
               <img
                 src="https://www.transparentpng.com/thumb/user/single-user-icon-png-free--rLHSHx.png"
                 alt=""
@@ -516,54 +567,63 @@ export const Navbar = () => {
               Guest
             </Link>
           </li>
-       
-          <li> 
+
+          <li id="signIn">
             {token ? (
               <>
-                              {/* {()=> toggleDrawer(false)} */}
-                              <Navigate to={"/user"}/>
+                <div className="user"></div>
+                {/* {()=> toggleDrawer(false)}
+                    {()=> toggleDrawer1(false)} */}
+                {/* <Navigate to={"/user"}/>
+                <Navigate to={"/user/orders"} /> */}
+                <Link to={"/user/orders"}></Link>
+
+                {/* {settoken("")} */}
                 <Box
-                  onClick={handlelogout}
+                  onClick={() => handlelogout()}
                   style={{ cursor: "pointer" }}
                   sx={{ flexGrow: 0 }}
                 >
                   {namee}
+                  Logout
                 </Box>
               </>
             ) : (
               // <Link to="/">
               <>
-                {/* <Box
+                <Box
                   style={{ cursor: "pointer" }}
                   sx={{ flexGrow: 0 }}
                   onClick={() => toggleDrawer1(true)}
+                  id="signInA"
                 >
-                  Login
-                </Box> */}
+                  {/* <img
+                    src="https://www.transparentpng.com/thumb/user/single-user-icon-png-free--rLHSHx.png"
+                    alt=""
+                  /> */}
+                  Sign in
+                </Box>
                 {/* <Link to={"/signup"}> */}
-                <Box
+                {/* <Box
                   className="signup"
                   style={{ cursor: "pointer" }}
                   sx={{ flexGrow: 0 }}
                   onClick={() => toggleDrawer(true)}
                 >
                   signup
-                </Box>
+                </Box> */}
               </>
             )}
             {/* <MenuIcon /> */}
           </li>
           <li id="cart">
-          <Link to="" >
-              {" "}
+            <Link to="">
               Cart<span id="noOfCartItems"></span>
             </Link>
           </li>
-
         </ul>
       </div>
-    </div> 
-
+    </div>
   );
 
 }

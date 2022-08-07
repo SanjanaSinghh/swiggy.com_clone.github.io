@@ -290,7 +290,7 @@ export const Login = () => {
             onChange={(e) => setotp(e.target.value)}
             variant="outlined"
           />
-          <Button onClick={verifyotp1}>Verify</Button>
+          <Button onClick={()=>verifyotp1}>Verify</Button>
         </>
       ) : (
         <>

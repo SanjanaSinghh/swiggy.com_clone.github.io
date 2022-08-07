@@ -1,10 +1,8 @@
-
-
 import './App.css';
 import './styles/Navbar.css'
 import './styles/Search.css'
 import { LandingPage } from './pages/LandingPage';
-import  {Navbar}  from './components/Navbar.jsx';
+import Navbar from "./components/Navbar";
 import { Search } from './pages/Search';
 import "./Lucky.css";
 // import Navbar from "./components/lucky/Navbar";
@@ -32,18 +30,17 @@ import Partner_Onboarding from "./components/help.jsx/Partner_Onbording";
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
-        <Route path="/navbar" element={<Navbar />}></Route>
+        {/* <Route path="/navbar" element={<Navbar />}></Route> */}
         <Route path="/search" element={<Search />}></Route>
         <Route
           path="/user"
           element={
-            <Navbar>
               <User>
                 <Orders />
               </User>
-            </Navbar>
           }
         ></Route>
         <Route
