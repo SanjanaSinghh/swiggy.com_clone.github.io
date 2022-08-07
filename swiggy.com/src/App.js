@@ -25,12 +25,17 @@ import Legal from "./components/help.jsx/Legal";
 import General from './components/help.jsx/General';
 import Partner_Onboarding from "./components/help.jsx/Partner_Onbording";
 // import Login from "./components/lucky/Login";
+import CheckoutPage from './Checkout/Ckeckout';
+import { Footer } from './Footer/Footer';
+import Map from './Checkout/Customer/Map';
+import Sample from './Checkout/Customer/Sample';
+
 
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
         {/* <Route path="/navbar" element={<Navbar />}></Route> */}
@@ -38,9 +43,9 @@ function App() {
         <Route
           path="/user"
           element={
-              <User>
-                <Orders />
-              </User>
+            <User>
+              <Orders />
+            </User>
           }
         ></Route>
         <Route
@@ -134,7 +139,12 @@ function App() {
             </Support>
           }
         ></Route>
+        <Route path="/checkout" element={<CheckoutPage />}></Route>
       </Routes>
+      {/* <Sample/> */}
+      {/* <Map/> */}
+      {/* <Routes></Routes> */}
+      {/* <Footer /> */}
     </div>
   );
 }
