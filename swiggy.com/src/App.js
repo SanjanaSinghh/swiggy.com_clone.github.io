@@ -43,9 +43,11 @@ function App() {
         <Route
           path="/user"
           element={
-            <User>
-              <Orders />
-            </User>
+            <Navbar>
+              <User>
+                <Orders />
+              </User>
+            </Navbar>
           }
         ></Route>
         <Route

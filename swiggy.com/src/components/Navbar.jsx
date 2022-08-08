@@ -299,10 +299,10 @@ export const Navbar = () => {
        <Box className="drawer" sx={{ width: 350 }} role="presentation">
          <div className="flex_1">
            <div className="jssp1">
-             <ClearIcon
+           <ClearIcon
                onClick={() => toggleDrawer1(false)}
                className="clearicon"
-             />
+             />  
              <p className="p1">Login</p>
              <p className="p2">
                or
@@ -576,15 +576,18 @@ export const Navbar = () => {
                     {()=> toggleDrawer1(false)} */}
                 {/* <Navigate to={"/user"}/>
                 <Navigate to={"/user/orders"} /> */}
-                <Link to={"/user/orders"}></Link>
-
-                {/* {settoken("")} */}
+                <Link to={"/user/orders"}>
+                  {/* {settoken("")} */}
+                  <Box style={{ cursor: "pointer" }} sx={{ flexGrow: 0 }}>
+                    {namee}
+                  </Box>
+                </Link>
                 <Box
                   onClick={() => handlelogout()}
                   style={{ cursor: "pointer" }}
                   sx={{ flexGrow: 0 }}
                 >
-                  {namee}
+                  {/* {namee} */}
                   Logout
                 </Box>
               </>

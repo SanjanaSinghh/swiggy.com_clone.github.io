@@ -1,5 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  
+    color: #282c3f;
 }
 
 /* .App {
@@ -169,7 +171,7 @@ body {
   margin-left: 20px;
 }
 .dummy {
-  height: 2000px;
+  height: auto;
 }
 .buttonuser1 {
   background-color: transparent;
@@ -235,4 +237,109 @@ a {
 }
 .stores img {
   padding: 10px;
+}
+.jsca {
+  display: flex;
+  flex-direction: row;
+}
+.jsca p {
+  padding: 0%;
+  margin: 0%;
+  margin-top: 3px;
+  margin-left: 10px;
+  color: black;
+  font-weight: 700;
+}
+.jscbp {
+  margin: 0%;
+      font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 19px;
+}
+.jscbap {
+  font-size: 15px;
+    color: #686b78;
+    padding-right: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.jscba {
+  display: flex;
+  margin: 0%;
+  justify-content: space-between;
+}
+.jscba p {
+  margin: 0%;
+}
+.flex2 {
+  display: flex;
+  flex-direction: column;
+}
+.jscred {
+  color: #fc8019;
+    font-weight: 560;
+    font-size: 13px;
+    margin-right: 20px;
+    cursor: pointer;
+    letter-spacing: -.3px;
+    /* position: absolute; */
+    right: 0;
+    bottom: 31px;
+}
+.jscb {
+    margin-top: 20px;
+    border-bottom: 1px solid #d4d5d9;
+    margin-bottom: 5px;
+    padding-bottom: 30px;
+}
+#dots1 {
+  font-size: 70px;
+    line-height: 0;
+    overflow: visible;    
+    color: #686b78;
+}
+.dat {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.querya {
+    border-bottom: 1px solid #d4d5d9;
+      padding: 22px 0 26px;
+    cursor: pointer;
+    color: #3d4152;
+    width: 100%;
+    text-align: left;
+}
+.querya p {
+  margin: 0%;
+}
+.paragraph {
+      color: #686b78;
+    font-size: 13px;
+    padding-right: 50px;
+    padding-bottom: 27px;
+    line-height: 1.4;
+    max-width: 700px;
+    margin-top: -4px;
+    white-space: pre-wrap;
+    padding-top: 13px;
+}
+.querya:hover {
+    color: #fc8019;
+}
+.alerta {
+  
+  font-size: 9px;
+  color: red;
+  margin-top: 3px;
+  margin-left: 4px;
+}
+.jsdred {
+  padding: 9px;
+  border: 1px solid;
+  width: 120px;
+}
+.jsbp7 {
+  font-size: 13px;
 }

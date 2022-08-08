@@ -6,6 +6,8 @@ const init = {
     name: "",
     email:"",
     number:"",
+    password:"",
+    id:"",
     token:""
 }
 
@@ -23,7 +25,9 @@ export const reducer = (state = init, {type, payload}) => {
                 error: false,
                 name:payload.name,
                 email:payload.email,
-                number:payload.number,
+                number: payload.number,
+                password: payload.password,
+                id: payload.id,
                 token: payload.token
             }
         case LOGIN_ERROR :

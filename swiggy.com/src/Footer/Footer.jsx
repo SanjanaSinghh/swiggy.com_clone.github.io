@@ -4,20 +4,20 @@ import styled from "styled-components";
 import "./footer.css";
 
 export const Footer = () => {
-  const Header = styled.header`
-    overflow: hidden;
-    ul {
-      list-style: none;
-    }
-    ul > li {
-      margin-bottom: 15px;
-      text-align: left;
-      color: white;
-    }
-  `;
+  // const Header = styled.header`
+  //   overflow: hidden;
+  //   ul {
+  //     list-style: none;
+  //   }
+  //   ul > li {
+  //     margin-bottom: 15px;
+  //     text-align: left;
+  //     color: white;
+  //   }
+  // `;
 
   return (
-    <Header>
+    <div className="footermain">
       <div
         className="container-fluid"
         style={{
@@ -2924,6 +2924,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-    </Header>
+    </div>
   );
 };
