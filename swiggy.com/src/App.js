@@ -29,13 +29,14 @@ import CheckoutPage from './Checkout/Ckeckout';
 import { Footer } from './Footer/Footer';
 import Map from './Checkout/Customer/Map';
 import Sample from './Checkout/Customer/Sample';
+import Faq from './components/help.jsx/Faq';
 
 
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
         {/* <Route path="/navbar" element={<Navbar />}></Route> */}
@@ -43,67 +44,89 @@ function App() {
         <Route
           path="/user"
           element={
-            <Navbar>
+            <>
+              <Navbar />
               <User>
                 <Orders />
               </User>
-            </Navbar>
+            </>
           }
         ></Route>
         <Route
           path="/user/orders"
           element={
-            <User>
-              <Orders />
-            </User>
+            <>
+              <Navbar />
+              <User>
+                <Orders />
+              </User>
+            </>
           }
         ></Route>
         <Route
           path="/user/super"
           element={
-            <User>
-              <Super />
-            </User>
+            <>
+              <Navbar />
+              <User>
+                <Super />
+              </User>
+            </>
           }
         ></Route>
         <Route
           path="/user/favourites"
           element={
-            <User>
-              <Favourites />
-            </User>
+            <>
+              <Navbar />
+              <User>
+                <Favourites />
+              </User>
+            </>
           }
         ></Route>
         <Route
           path="/user/payments"
           element={
-            <User>
-              <Payments />
-            </User>
+            <>
+              <Navbar />
+              <User>
+                <Payments />
+              </User>
+            </>
           }
         ></Route>
         <Route
           path="/user/addresses"
           element={
-            <User>
-              <Address />
-            </User>
+            <>
+              <Navbar />
+              <User>
+                <Address />
+              </User>
+            </>
           }
         ></Route>
         <Route
           path="/user/settings"
           element={
-            <User>
-              <Settings />
-            </User>
+            <>
+              <Navbar />
+              <User>
+                <Settings />
+              </User>
+            </>
           }
         ></Route>
         <Route
           path="/support"
           element={
-            <Support>
-              <Previous_orders />
-            </Support>
+            <>
+              <Navbar />
+              <Support>
+                <Previous_orders />
+              </Support>
+            </>
           }
         ></Route>
 
@@ -112,33 +135,56 @@ function App() {
         <Route
           path="/support/issues/orders"
           element={
-            <Support>
-              <Previous_orders />
-            </Support>
+            <>
+              <Navbar />
+              <Support>
+                <Previous_orders />
+              </Support>
+            </>
           }
         ></Route>
         <Route
           path="/support/issues/general"
           element={
-            <Support>
-              <General />
-            </Support>
+            <>
+              <Navbar />
+              <Support>
+                <General />
+              </Support>
+            </>
           }
         ></Route>
         <Route
           path="/support/issues/partner-onboarding"
           element={
-            <Support>
-              <Partner_Onboarding />
-            </Support>
+            <>
+              <Navbar />
+              <Support>
+                <Partner_Onboarding />
+              </Support>
+            </>
           }
         ></Route>
         <Route
           path="/support/issues/legal"
           element={
-            <Support>
-              <Legal />
-            </Support>
+            <>
+              <Navbar />
+              <Support>
+                <Legal />
+              </Support>
+            </>
+          }
+        ></Route>
+        <Route
+          path="/support/issues/faq"
+          element={
+            <>
+              <Navbar />
+              <Support>
+                <Faq />
+              </Support>
+            </>
           }
         ></Route>
         <Route path="/checkout" element={<CheckoutPage />}></Route>

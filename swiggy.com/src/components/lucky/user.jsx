@@ -30,11 +30,14 @@ const User = ({children}) => {
   const [expandform1, setexpandform1] = useState(false);
   const [expandform2, setexpandform2] = useState(false);
   const [expandform3, setexpandform3] = useState(false);
+ 
   console.log(email, name, number, password)
 
    const toggleDrawer = (open) => {
      console.log(1);
      setState(open);
+     setNumber(number);
+     setEmail(email)
   };
   const toggleDrawer1 = () => {
     toggleDrawer(false)
@@ -180,7 +183,7 @@ const User = ({children}) => {
               <Button
                 id="button_1"
                 className="verify"
-                // onClick={() => verifyotp1()}
+                onClick={() => setexpandform2(false)}
                 variant="outlined"
               >
                 Update

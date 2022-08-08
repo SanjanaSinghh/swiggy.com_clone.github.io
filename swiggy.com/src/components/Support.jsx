@@ -205,24 +205,26 @@ const Support = ({ children }) => {
                     </span>
                   </li>
                 </Link>
-                <li
-                  className="js31li"
-                  style={{
-                    backgroundColor: isActive5 ? "#ffffff" : "",
-                    color: isActive5 ? "grey" : "",
-                  }}
-                  onClick={handleClick5}
-                >
-                  <span
-                    className="js31span"
+                <Link to={"/support/issues/faq"}>
+                  <li
+                    className="js31li"
                     style={{
-                      fontWeight: isActive5 ? "bold" : "normal",
+                      backgroundColor: isActive5 ? "#ffffff" : "",
+                      color: isActive5 ? "grey" : "",
                     }}
+                    onClick={handleClick5}
                   >
-                    FAQs
-                  </span>
-                </li>
-                <li
+                    <span
+                      className="js31span"
+                      style={{
+                        fontWeight: isActive5 ? "bold" : "normal",
+                      }}
+                    >
+                      FAQs
+                    </span>
+                  </li>
+                </Link>
+                {/* <li
                   className="js31li"
                   style={{
                     backgroundColor: isActive6 ? "#ffffff" : "",
@@ -289,7 +291,7 @@ const Support = ({ children }) => {
                   >
                     Conversation archive
                   </span>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className="js31right">{children}</div>
