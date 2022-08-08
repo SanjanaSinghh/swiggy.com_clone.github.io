@@ -22,7 +22,7 @@ const Partner_Onbording = () => {
             className="querya"
             onClick={() => setexpandform1(true)}
             onMouseLeave={() => setexpandform1(false)}
-            oncla={() => setexpandform1(false)}
+            // oncla={() => setexpandform1(false)}
           >
             <div className="flexd">
               <p>I want to partner my restaurant with Swiggy</p>

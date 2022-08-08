@@ -388,3 +388,8 @@ a {
     font-size: 14px;
     width: 50%;
   }
+  .read_more {
+    color: #fc8019;
+    font-size: 14px;
+    font-weight: 700;
+  }
