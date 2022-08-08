@@ -54,7 +54,7 @@ const WarningText = styled.p`
     padding-bottom: 10px;
 `;
 
-function Payment() {
+const Payment=()=> {
     const navigate = useNavigate();
    // const state = useSelector((state) => state);
     let Total = 100;
