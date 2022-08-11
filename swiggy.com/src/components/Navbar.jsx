@@ -523,7 +523,7 @@ export const Navbar = () => {
           {list()}
         </Drawer>
 
-        <Link to="/checkout" id="logo">
+        <Link to="/" id="logo">
           <img
             src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg"
             alt="swiggylogo"
