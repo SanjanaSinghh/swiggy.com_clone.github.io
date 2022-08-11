@@ -40,12 +40,18 @@ const Ckeckout = () => {
             marginBottom: "150px",
           }}
         >
-          <div style={{ width: "60%" ,flex: '1',
-    marginRight: '30px',
-    position: 'relative'}}>
+          <div
+            style={{
+              width: "60%",
+              flex: "1",
+              marginRight: "30px",
+              position: "relative",
+            }}
+          >
             <div>
-              <div style={{   marginTop:'30px',
-    boxShadow: '0 4px 14px #d4d5d9'}}>
+              <div
+                style={{ marginTop: "30px", boxShadow: "0 4px 14px #d4d5d9" }}
+              >
                 <Address flag={isAddrSelected} />
               </div>
               {isAddrSelected ? (
