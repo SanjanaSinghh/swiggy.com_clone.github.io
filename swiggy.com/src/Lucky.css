@@ -394,3 +394,7 @@ a {
     font-weight: 700;
     margin: 12px;
   }
+  .signInA img  {
+    width: 10px;
+    height: 10px;
+  }

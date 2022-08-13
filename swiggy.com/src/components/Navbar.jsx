@@ -4,6 +4,7 @@ import { getAuth, signOut } from "firebase/auth";
 import Search from '@mui/icons-material/Search';
 // import { Link } from 'react-router-dom';
 
+import Usericon from "../Images/single-user-icon-png-free.png";
 import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -523,7 +524,7 @@ export const Navbar = () => {
           {list()}
         </Drawer>
 
-        <Link to="/checkout" id="logo">
+        <Link to="/" id="logo">
           <img
             src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg"
             alt="swiggylogo"
@@ -558,7 +559,7 @@ export const Navbar = () => {
               Help
             </Link>
           </li>
-          <li id="signIn">
+          {/* <li id="signIn">
             <Link to="" id="signInA">
               <img
                 src="https://www.transparentpng.com/thumb/user/single-user-icon-png-free--rLHSHx.png"
@@ -566,7 +567,7 @@ export const Navbar = () => {
               />
               Guest
             </Link>
-          </li>
+          </li> */}
 
           <li id="signIn">
             {token ? (
@@ -582,6 +583,7 @@ export const Navbar = () => {
                     {namee}
                   </Box>
                 </Link>
+                <Link to={"/support"}>
                 <Box
                   onClick={() => handlelogout()}
                   style={{ cursor: "pointer" }}
@@ -589,7 +591,8 @@ export const Navbar = () => {
                 >
                   {/* {namee} */}
                   Logout
-                </Box>
+                  </Box>
+                </Link>
               </>
             ) : (
               // <Link to="/">

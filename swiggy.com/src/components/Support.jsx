@@ -2,6 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Footer } from "../Footer/Footer";
 
 const Support = ({ children }) => {
   const [isActive1, setIsActive1] = useState(true);
@@ -114,117 +115,118 @@ const Support = ({ children }) => {
     };
 
   return (
-    <div className="body_help">
-      <div className="main">
-        <div className="js1">
-          <h1 className="jsh1">Help & Support</h1>
-          <div className="jsp1">
-            Let's take a step ahead and help you better.
+    <>
+      <div className="body_help">
+        <div className="main">
+          <div className="js1">
+            <h1 className="jsh1">Help & Support</h1>
+            <div className="jsp1">
+              Let's take a step ahead and help you better.
+            </div>
           </div>
         </div>
-      </div>
-      <div className="jsbottom">
-        <div className="js2"></div>
-        <div className="js3">
-          <div className="js31">
-            <div className="js31left">
-              <ul className="jss31ul">
-                <Link to={"/support/issues/orders"}>
-                  <li
-                    className="js31li"
-                    style={{
-                      backgroundColor: isActive1 ? "#ffffff" : "",
-                      color: isActive1 ? "grey" : "",
-                    }}
-                    onClick={handleClick1}
-                  >
-                    <span
-                      className="js31span"
+        <div className="jsbottom">
+          <div className="js2"></div>
+          <div className="js3">
+            <div className="js31">
+              <div className="js31left">
+                <ul className="jss31ul">
+                  <Link to={"/support/issues/orders"}>
+                    <li
+                      className="js31li"
                       style={{
-                        fontWeight: isActive1 ? "bold" : "normal",
+                        backgroundColor: isActive1 ? "#ffffff" : "",
+                        color: isActive1 ? "grey" : "",
                       }}
+                      onClick={handleClick1}
                     >
-                      Help with orders
-                    </span>
-                  </li>
-                </Link>
-                <Link to={"/support/issues/general"}>
-                  <li
-                    className="js31li"
-                    style={{
-                      backgroundColor: isActive2 ? "#ffffff" : "",
-                      color: isActive2 ? "grey" : "",
-                    }}
-                    onClick={handleClick2}
-                  >
-                    <span
-                      className="js31span"
+                      <span
+                        className="js31span"
+                        style={{
+                          fontWeight: isActive1 ? "bold" : "normal",
+                        }}
+                      >
+                        Help with orders
+                      </span>
+                    </li>
+                  </Link>
+                  <Link to={"/support/issues/general"}>
+                    <li
+                      className="js31li"
                       style={{
-                        fontWeight: isActive2 ? "bold" : "normal",
+                        backgroundColor: isActive2 ? "#ffffff" : "",
+                        color: isActive2 ? "grey" : "",
                       }}
+                      onClick={handleClick2}
                     >
-                      General issues
-                    </span>
-                  </li>
-                </Link>
-                <Link to={"/support/issues/partner-onboarding"}>
-                  <li
-                    className="js31li"
-                    style={{
-                      backgroundColor: isActive3 ? "#ffffff" : "",
-                      color: isActive3 ? "grey" : "",
-                    }}
-                    onClick={handleClick3}
-                  >
-                    <span
-                      className="js31span"
+                      <span
+                        className="js31span"
+                        style={{
+                          fontWeight: isActive2 ? "bold" : "normal",
+                        }}
+                      >
+                        General issues
+                      </span>
+                    </li>
+                  </Link>
+                  <Link to={"/support/issues/partner-onboarding"}>
+                    <li
+                      className="js31li"
                       style={{
-                        fontWeight: isActive3 ? "bold" : "normal",
+                        backgroundColor: isActive3 ? "#ffffff" : "",
+                        color: isActive3 ? "grey" : "",
                       }}
+                      onClick={handleClick3}
                     >
-                      Partner Onboarding
-                    </span>
-                  </li>
-                </Link>
-                <Link to={"/support/issues/legal"}>
-                  <li
-                    className="js31li"
-                    style={{
-                      backgroundColor: isActive4 ? "#ffffff" : "",
-                      color: isActive4 ? "grey" : "",
-                    }}
-                    onClick={handleClick4}
-                  >
-                    <span
-                      className="js31span"
+                      <span
+                        className="js31span"
+                        style={{
+                          fontWeight: isActive3 ? "bold" : "normal",
+                        }}
+                      >
+                        Partner Onboarding
+                      </span>
+                    </li>
+                  </Link>
+                  <Link to={"/support/issues/legal"}>
+                    <li
+                      className="js31li"
                       style={{
-                        fontWeight: isActive4 ? "bold" : "normal",
+                        backgroundColor: isActive4 ? "#ffffff" : "",
+                        color: isActive4 ? "grey" : "",
                       }}
+                      onClick={handleClick4}
                     >
-                      Legal Terms & Conditions{" "}
-                    </span>
-                  </li>
-                </Link>
-                <Link to={"/support/issues/faq"}>
-                  <li
-                    className="js31li"
-                    style={{
-                      backgroundColor: isActive5 ? "#ffffff" : "",
-                      color: isActive5 ? "grey" : "",
-                    }}
-                    onClick={handleClick5}
-                  >
-                    <span
-                      className="js31span"
+                      <span
+                        className="js31span"
+                        style={{
+                          fontWeight: isActive4 ? "bold" : "normal",
+                        }}
+                      >
+                        Legal Terms & Conditions{" "}
+                      </span>
+                    </li>
+                  </Link>
+                  <Link to={"/support/issues/faq"}>
+                    <li
+                      className="js31li"
                       style={{
-                        fontWeight: isActive5 ? "bold" : "normal",
+                        backgroundColor: isActive5 ? "#ffffff" : "",
+                        color: isActive5 ? "grey" : "",
                       }}
+                      onClick={handleClick5}
                     >
-                      FAQs
-                    </span>
-                  </li>
-                </Link>
-                {/* <li
+                      <span
+                        className="js31span"
+                        style={{
+                          fontWeight: isActive5 ? "bold" : "normal",
+                        }}
+                      >
+                        FAQs
+                      </span>
+                    </li>
+                  </Link>
+                  {/* <li
                   className="js31li"
                   style={{
                     backgroundColor: isActive6 ? "#ffffff" : "",
@@ -292,14 +294,18 @@ const Support = ({ children }) => {
                     Conversation archive
                   </span>
                 </li> */}
-              </ul>
+                </ul>
+              </div>
+              <div className="js31right">{children}</div>
             </div>
-            <div className="js31right">{children}</div>
           </div>
+          <div className="js4"></div>
         </div>
-        <div className="js4"></div>
       </div>
-    </div>
+      <div className="js4">
+        <Footer />
+      </div>
+    </>
   );
 };
 
