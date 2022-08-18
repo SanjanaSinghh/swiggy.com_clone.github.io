@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RoomIcon from "@mui/icons-material/Room";
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 
 const Wrapper = styled.div`
   font-family: system-ui !important;
@@ -60,7 +60,7 @@ const AddressText = styled.p`
 `;
 
 const AddressContainer = styled.button`
-display:flex;
+  display: flex;
   border: 1px dashed #e9e9eb;
   padding: 0px;
   background: white;
@@ -71,7 +71,6 @@ const AddLocation = styled.img`
   width: 25px;
   vertical-align: inherit;
   margin-radius: 0px;
- 
 `;
 
 const Change = styled.button`
@@ -89,7 +88,7 @@ const CurrAddr = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [addr, setAddr] = useState({});
- 
+
   useEffect(() => {
     //   setAddr(JSON.parse(localStorage.getItem('CustomerCurrentLoc')));
     setAddr({
@@ -101,13 +100,11 @@ const CurrAddr = () => {
   }, []);
 
   const AddrSelected = () => {
-    
-    if(addr==null){
-        dispatch(isAddressSelected(false));
-    }else{
-        dispatch(isAddressSelected(true));
+    if (addr == null) {
+      dispatch(isAddressSelected(false));
+    } else {
+      dispatch(isAddressSelected(true));
     }
-    
   };
 
   return (
@@ -177,13 +174,24 @@ const Address = (props) => {
     return (
       <>
         <Wrapper>
-          <div>
+          <div
+            style={{ position: " relative"}}
+          >
             <Logo>
               <RoomIcon
                 style={{ height: "80px", width: "80px", marginLeft: "-50px" }}
               />
             </Logo>
-            <div>
+            <div
+              style={{
+                fontSize: "1.3rem",
+                fontWeight: " 600",
+                color: " #282c3f",
+                marginBottom: "32px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
               <div>
                 <div>
                   <Title>

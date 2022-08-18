@@ -118,6 +118,7 @@ export const LandingPage = () => {
                 <div id="searchBox">
                     <input id="searchBar" type={"text"} onChange={(e)=>{setPinCode(e.target.value)}} placeholder="Enter your delivery location " />
                     <button id="searchBtn" onClick={handleFindFood}><Link to={"/search"}>FIND FOOD</Link></button>
+                    <button id="searchBtn" onClick={handleFindFood}><Link to={"/"}>FIND FOOD</Link></button>
                 </div>
                 <h3 id="popularCitiesHeading">POPULAR CITIES IN INDIA</h3>
                 <ul id="popularCitiesList">
