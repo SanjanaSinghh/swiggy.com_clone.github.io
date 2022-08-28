@@ -4,7 +4,6 @@ Swiggy is an Indian online food ordering and delivery platform. Founded in July 
 
 ## Deployed Link
 
-https://cloneswiggyapp.vercel.app/
 
 ## Authors
 
